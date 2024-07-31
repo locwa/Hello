@@ -2,10 +2,10 @@
 <html lang="en">
 <?php 
     $page_name = "Hello | A messaging app";
-    include_once("..private/includes/header.php")
+    include_once("header.php")
 ?>
 <body>
     
-<?php include_once("includes/js_components.php")?>
+<?php include_once("js_components.php")?>
 </body>
 </html>

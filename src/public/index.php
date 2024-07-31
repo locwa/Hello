@@ -1,6 +1,7 @@
 <?php
+session_start();
 
-if ($_SESSION['check'] == true){
+if (isset($_SESSION['check']) && $_SESSION['check'] == true){
 
 }
 else{
