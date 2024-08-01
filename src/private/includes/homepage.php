@@ -9,8 +9,11 @@
         <div class="container-fluid"> hello</div>
     </nav>
     <div class="container-fluid hero">
-        <div class="container-sm g-0" style="margin-left: 0.5rem">
-            <h1 class="headline">Connect with friends. Whenever, Wherever.</h1>
+        <div class="row">
+            <div class="col-6 headline-container">
+                <h1 class="headline">Connect with friends. Whenever, Wherever<sup style="font-size: 30%; top: -1.7em; margin-left: 0.3rem">1</sup>.</h1>
+                <p class="fs-6 fw-light">Hello provides a way to connect with friends.</p>
+            </div>
         </div>
     </div>
 <?php include_once("js_components.php")?>

@@ -3,8 +3,22 @@
     height: 90vh;
 }
 
+.headline-container{
+    margin: 0 2rem;
+    padding: 5rem 0;
+    color: white;
+}
+
 .headline{
     font-family: "Poppins";
     font-size: 3.5rem;
     font-weight: 600;
+}
+
+@media screen and (max-width: 576px) {
+    .headline-container{
+        margin: 0; 
+        width: 100%;
+        text-align: center;
+    }
 }
