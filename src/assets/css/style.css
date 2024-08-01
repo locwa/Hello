@@ -1,0 +1,10 @@
+.hero{
+    background-color: rgb(53, 106, 240);
+    height: 90vh;
+}
+
+.headline{
+    font-family: "Poppins";
+    font-size: 3.5rem;
+    font-weight: 600;
+}
