@@ -7,9 +7,9 @@
 <body class="container-fluid vh-100 m-0 g-0">
     <nav class="navbar navbar-expand-lg" id="navBar">
         <svg
-            width="150"
-            height="80"
-            viewBox="0 0 135.46667 135.46667"
+            width="110"
+            height="55"
+            viewBox="0 0 155.46667 60.177087"
             version="1.1"
             id="svg1"
             xmlns="http://www.w3.org/2000/svg"
@@ -17,9 +17,9 @@
             <defs
                 id="defs1">
                 <rect
-                x="35.695822"
+                x="35.695824"
                 y="104.04952"
-                width="431.38781"
+                width="431.38782"
                 height="219.49133"
                 id="rect1" />
             </defs>
@@ -27,12 +27,12 @@
                 id="layer1">
                 <text
                 xml:space="preserve"
-                transform="matrix(0.68621181,0,0,0.71161713,-105.34506,-73.467357)"
+                transform="matrix(0.68621181,0,0,0.71161713,-105.34506,-108.83407)"
                 id="text1"
                 style="font-size:162.667px;white-space:pre;shape-inside:url(#rect1);display:inline;fill:#000000;stroke-width:0"
                 x="12.983988"
                 y="0"><tspan
-                    x="159.97075"
+                    x="270"
                     y="256.14248"
                     id="tspan4"><tspan
                     style="font-family:Sansilk;-inkscape-font-specification:Sansilk;text-align:center;text-anchor:middle"
