@@ -38,17 +38,16 @@
 }
 .login-btn, .signin-btn{
     padding: 0.8rem 1.3rem;
+    border: 0.2rem solid #000000;
     border-radius: 20px;
     font-weight: 600;
     width: 6rem;
 }
 .login-btn{
     padding: 0.8rem 1.3rem;
-    border: 1px solid #000000;
     background-color: #000000;
     color: #e3cc16;
 }
 .signin-btn{
-    border: 0.2rem solid #000000;
     color: #000000;
 }
