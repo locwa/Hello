@@ -4,8 +4,8 @@
     $page_name = "Hello | A messaging app";
     include_once("header.php")
 ?>
-<body class="container-fluid vh-100 m-0 g-0">
-    <nav class="navbar navbar-expand-lg" id="navBar">
+<body>
+    <nav>
         <svg
         width="150"
         height="70"
@@ -53,7 +53,7 @@
         </svg>
 
     </nav>
-    
-<?php include_once("js_components.php")?>
+    <div class="hero"></div>
+    <?php include_once("js_components.php")?>
 </body>
 </html>
