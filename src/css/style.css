@@ -8,7 +8,7 @@
     margin-left: 1.5rem;
 }
 .hero{
-    height: 50vh;
+    height: 80vh;
     width: 50vw;
     display: flex;
     flex-direction: column;
@@ -19,4 +19,36 @@
 .headline{
     font-size: 3.5rem;
     margin: 1.2rem 0;
+}
+.support{
+    margin-bottom: 1rem;
+}
+.landing-input, .login-btn{
+    margin: 0.5rem 0;
+}
+.landing-input{
+    display: flex;
+    flex-direction: column;
+    border: none;
+    border-radius: 20px;
+    padding-left: 1rem;
+    background-color: #eaeaea;
+    height: 2rem;
+    width: 13rem;
+}
+.login-btn, .signin-btn{
+    padding: 0.8rem 1.3rem;
+    border-radius: 20px;
+    font-weight: 600;
+    width: 6rem;
+}
+.login-btn{
+    padding: 0.8rem 1.3rem;
+    border: 1px solid #000000;
+    background-color: #000000;
+    color: #e3cc16;
+}
+.signin-btn{
+    border: 0.2rem solid #000000;
+    color: #000000;
 }
