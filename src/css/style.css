@@ -4,6 +4,9 @@
 nav{
     background-color: #e3cb17;
 }
+.nav-logo{
+    margin-left: 1.5rem;
+}
 .hero{
     background-color: #e3cb17;
     height: 90vh;
