@@ -53,21 +53,7 @@
         </svg>
 
     </nav>
-    <div class="container-fluid hero">
-        <div class="row">
-            <div class="col-6 headline-container">
-                <h1 class="headline">Connect with friends. Whenever, Wherever<sup style="font-size: 30%; top: -1.7em; margin-left: 0.3rem">1</sup>.</h1>
-                <p class="fs-6 fw-light">Hello provides a way to connect with friends.</p>
-                <div class="row">
-                    <form name="signup" method="post">
-                        <input type="text" name="email" id="email" placeholder="E-Mail Address">
-                        <input type="password" name="password" id="password" placeholder="Password">
-                        <button type="submit">Signup</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 <?php include_once("js_components.php")?>
 </body>
 </html>

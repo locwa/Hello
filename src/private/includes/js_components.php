@@ -1,1 +1,1 @@
-<script src="../assets/bootstrap-5.3.3-dist/js/bootstrap.js"></script>
+<script src="../bootstrap-5.3.3-dist/js/bootstrap.js"></script>

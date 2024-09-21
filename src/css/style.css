@@ -3,6 +3,10 @@
     height: 90vh;
 }
 
+nav{
+    background-color: #e3cb17;
+}
+
 .headline-container{
     margin: 0 2rem;
     padding: 5rem 0;
