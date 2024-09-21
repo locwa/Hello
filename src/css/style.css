@@ -10,6 +10,7 @@ nav{
 .hero{
     background-color: #e3cb17;
     height: 90vh;
+    width: 50vw;
 }
 .intro{
     color: #fff;
