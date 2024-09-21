@@ -56,8 +56,12 @@
         </div>
     </nav>
     <div class="hero">
-        <h1 class="headline">Connect with friends. Whenever, Wherever</h1>
+        <h1 class="headline">Connect with friends. Whenever, Wherever.</h1>
         <p class="support">Hello provides a way to connect with your favorite people.</p>
+        <form action="" method="post">
+            <input type="email" name="email" id="emailInput" placeholder="E-mail Address">
+            <input type="password" name="password" id="passwordInput" placeholder="Password">
+        </form>
     </div>
 </body>
 </html>
