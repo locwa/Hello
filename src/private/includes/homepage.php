@@ -56,7 +56,8 @@
         </div>
     </nav>
     <div class="hero">
-        <h1 class="intro">Connect with friends. Whenever, Wherever</h1>
+        <h1 class="headline">Connect with friends. Whenever, Wherever</h1>
+        <p class="support">Hello provides a way to connect with your favorite people.</p>
     </div>
 </body>
 </html>

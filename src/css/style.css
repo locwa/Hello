@@ -1,6 +1,8 @@
 *{
     margin: 0;
-    background-color: #e3cb17;
+    background-color: #e3cc16;
+    font-family: Lato;
+    color: #fff;
 }
 .nav-logo{
     margin-left: 1.5rem;
@@ -9,11 +11,12 @@
     height: 50vh;
     width: 50vw;
     display: flex;
-    align-items: center;
-}
-.intro{
-    color: #fff;
-    font-family: Lato;
-    font-size: 3.5rem;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-left: 2rem;
+}   
+.headline{
+    font-size: 3.5rem;
+    margin: 1.2rem 0;
 }
