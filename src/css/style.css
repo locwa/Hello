@@ -1,11 +1,15 @@
 *{
     margin: 0;
 }
+nav{
+    background-color: #e3cb17;
+}
 .hero{
     background-color: #e3cb17;
     height: 90vh;
 }
-
-nav{
-    background-color: #e3cb17;
+.intro{
+    color: #fff;
+    font-family: Lato;
+    font-size: 3rem;
 }

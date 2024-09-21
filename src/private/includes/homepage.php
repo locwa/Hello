@@ -53,7 +53,9 @@
         </svg>
 
     </nav>
-    <div class="hero"></div>
+    <div class="hero">
+        <h1 class="intro">Connect with friends. Whenever, Wherever</h1>
+    </div>
     <?php include_once("js_components.php")?>
 </body>
 </html>
