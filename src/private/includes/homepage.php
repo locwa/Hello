@@ -58,11 +58,16 @@
     <div class="hero">
         <h1 class="headline">Connect with friends. Whenever, Wherever.</h1>
         <p class="support">Hello provides a way to connect with your favorite people.</p>
-        <form action="" method="post">
+        <!-- 
+            NOTE: as this file is used as an include in index.php, the filepath used assumes that the
+            it is the root folder is the public one. THIS SHOULD BE FIXED LATER FOR THE index.php FILE
+            TO REDIRECT TO THIS FILE INSTEAD OF INCLUDING IT.   
+        -->
+        <form action="../private/login.php" method="post">
             <input type="email" name="email" class="landing-input" placeholder="E-mail Address">
             <input type="password" name="password" class="landing-input" placeholder="Password">
             <div class="buttons">
-                <button type="submit" class="login-btn">Log in</button>
+                <button type="submit" name="login" class="login-btn">Log in</button>
                 <button type="submit" class="signin-btn">Sign up</button>
             </div>
         </form>
