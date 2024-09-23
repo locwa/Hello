@@ -1,6 +1,6 @@
 <?php
     if(!isset($_SESSION["check"]) || $_SESSION["check"] == false){
-        header("location: ./");
+        header("Location: ./");
         exit();
     }
 ?>
