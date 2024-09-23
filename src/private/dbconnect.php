@@ -1,4 +1,7 @@
 <?php
     $user = "root";
-    $pass = "";
-    $dsn = "mysql:host='localhost';dbname='hello';charset='utf8mb4'";
+    $pwd = "";
+    $host = "localhost";
+    $dbname = "hello";
+
+    $dsn = "mysql:host=". $host .";dbname=". $dbname;
