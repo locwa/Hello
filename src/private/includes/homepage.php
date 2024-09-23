@@ -68,7 +68,7 @@
             <input type="password" name="password" class="landing-input" placeholder="Password">
             <div class="buttons">
                 <button type="submit" name="login" class="login-btn">Log in</button>
-                <button type="submit" class="signin-btn">Sign up</button>
+                <button type="submit" name="signup" class="signin-btn">Sign up</button>
             </div>
         </form>
     </div>
