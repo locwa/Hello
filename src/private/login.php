@@ -9,10 +9,13 @@
             $stmt->execute([$email, $pwd]);
             $user_cred = $stmt->fetch();
             if ($user_cred){
-                echo "Success";
+                $_SESSION["check"] = true;
+                header("Location: ../public/inbox.php");
+                exit();
             }
             else {
                 header("Location: ../public/homepage.php");
+                exit();
             }
         }
         else {

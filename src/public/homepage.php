@@ -3,6 +3,7 @@
 <?php 
     $page_name = "Hello | A messaging app";
     include_once("../private/includes/header.php");
+    include_once("../private/includes/session_check.php");
 ?>
 <body>
     <nav>
