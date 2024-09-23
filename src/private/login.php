@@ -1,5 +1,6 @@
 <?php
     require_once("./includes/dbconnect.php");
+    session_start();
 
     if (isset($_POST['login'])){
         $email = $_POST['email'];

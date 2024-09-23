@@ -7,5 +7,8 @@
 <?php include_once("../private/includes/header.php");?>
 <body>
     <h1>Hello</h1>
+    <form action="../private/logout.php" method="post">
+        <button>Logout</button>
+    </form>
 </body>
 </html>
