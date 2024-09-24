@@ -1,5 +1,9 @@
 <?php
-    include_once("../private/includes/session_check.php");
+    session_start();
+    if(!isset($_SESSION["check"]) || $_SESSION["check"] !== true){
+        header("Location: ./");
+        exit();
+    }
     $page_name = "Inbox | Hello";
 ?>
 <!DOCTYPE html>
