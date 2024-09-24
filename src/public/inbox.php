@@ -6,6 +6,9 @@
 <html lang="en">
 <?php include_once("../private/includes/header.php");?>
 <body class="inbox">
+    <nav class="message navbar">
+        <h1>h</h1>
+    </nav>
     <div class="message msg-list">
         <h1>Hello</h1>
         <form action="../private/logout.php" method="post">

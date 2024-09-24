@@ -64,11 +64,17 @@ body{
     border-radius: 20px;
     height: 95vh;
 }
-.msg-list{
+.msg-list, .msg-contents, .navbar{
     margin: 1rem;
+}
+.msg-list{
     width: 30vw;
 }
 .msg-contents{
-    margin: 1rem;
     width: 65vw;
+}
+.navbar{
+    width: 4vw;
+    margin-right: 0.1rem;
+    border-radius: 20px;
 }
