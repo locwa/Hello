@@ -63,7 +63,7 @@
     <div class="hero">
         <h1 class="headline">Connect with friends. Whenever, Wherever.</h1>
         <p class="support">Hello provides a way to connect with your favorite people.</p>
-        <form action="../private/login.php" method="post">
+        <form action="../private/homepage_action.php" method="post">
             <input type="email" name="email" class="landing-input" placeholder="E-mail Address">
             <input type="password" name="password" class="landing-input" placeholder="Password">
             <div class="buttons">
