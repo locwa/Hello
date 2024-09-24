@@ -64,6 +64,11 @@ body{
     border-radius: 20px;
     height: 95vh;
 }
-.list{
-    
+.msg-list{
+    margin: 1rem;
+    width: 30vw;
+}
+.msg-contents{
+    margin: 1rem;
+    width: 65vw;
 }
