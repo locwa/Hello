@@ -131,7 +131,8 @@ body{
     width: 35vw;
     height: 85vh;
     padding: 2rem;
-    background-color: #eaeaea;;
+    border-radius: 10px;
+    background-color: #eaeaea;
 }
 .registration-form{
     display: flex;

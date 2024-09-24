@@ -22,6 +22,7 @@
             <input type="password" name="password" placeholder="Password">
             <div class="birthdate">
                 <select name="month">
+                    <option value="" disabled selected>Month</option>
                     <option value="january">January</option>
                     <option value="feburary">Feburary</option>
                     <option value="march">March</option>
@@ -36,6 +37,7 @@
                     <option value="december">December</option>
                 </select>
                 <select name="day">
+                    <option value="" disabled selected>Day</option>
                     <?php 
                         for ($i = 1; $i <= 31; $i++){
                             echo '<option value="' . $i . '">' . $i . '</option>';      
@@ -43,6 +45,7 @@
                     ?>
                 </select>
                 <select name="year">
+                    <option value="" disabled selected>Year</option>
                     <?php
                         for ($i = intval(date("Y")); $i >= 1900; $i--){
                             echo '<option value="' . $i . '">' . $i . '</option>'; 
@@ -51,6 +54,7 @@
                 </select>
             </div>
             <select name="gender">
+                <option value="" disabled selected>Select</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                     <option value="other">Other</option>
