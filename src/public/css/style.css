@@ -58,14 +58,17 @@ body{
 
 .inbox{
     display: flex;
+    align-items: center;
+    height: 100vh;
 }
 .message{
     background-color: #1b1a1a;
     border-radius: 20px;
-    height: 95vh;
+    height: 90vh;
 }
 .msg-list, .msg-contents, .navbar{
     margin: 1rem;
+    padding: 1.5rem;
 }
 .msg-list{
     width: 30vw;
@@ -76,5 +79,6 @@ body{
 .navbar{
     width: 4vw;
     margin-right: 0.1rem;
+    padding: 1.5rem 0.3rem;
     border-radius: 20px;
 }
