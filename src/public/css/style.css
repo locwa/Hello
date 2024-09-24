@@ -82,3 +82,7 @@ body{
     padding: 1.5rem 0.3rem;
     border-radius: 20px;
 }
+.heading{
+    font-size: 1.5rem;
+    margin: 0;
+}

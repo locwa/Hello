@@ -10,7 +10,7 @@
         <h1>h</h1>
     </nav>
     <div class="message msg-list">
-        <h1>Hello</h1>
+        <h1 class="heading">Chats</h1>
         <form action="../private/logout.php" method="post">
             <button>Logout</button>
         </form>
