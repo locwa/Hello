@@ -5,10 +5,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php include_once("../private/includes/header.php");?>
-<body>
-    <h1>Hello</h1>
-    <form action="../private/logout.php" method="post">
-        <button>Logout</button>
-    </form>
+<body class="inbox">
+    <div class="message list">
+        <h1>Hello</h1>
+        <form action="../private/logout.php" method="post">
+            <button>Logout</button>
+        </form>
+    </div>
+    <div class="message contents">
+        <h1>hi</h1>
+    </div>
 </body>
 </html>
