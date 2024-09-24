@@ -24,7 +24,5 @@
         }
     }
     else if (isset($_POST['signup'])){
-        $email = $_POST['email'];
-        $pwd = $_POST['password'];
-        echo $email . " " . $pwd;
+        header("Location: ../public/signup.php");
     }
