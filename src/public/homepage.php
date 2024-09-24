@@ -7,7 +7,7 @@
     if(isset($_SESSION['check']) && $_SESSION['check'] == true){
         header("location: inbox.php");
         exit;
-}
+    }
 ?>
 <body>
     <nav>
