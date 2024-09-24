@@ -11,13 +11,15 @@
     }
 ?>
 </head>
-<body>
+<body class="registration">
     <div class="registration-container">
-        <form action="../private/registration.php" method="post">
-            <input type="text" name="fname">
-            <input type="text" name="lname">
-            <input type="email" name="email">
-            <input type="password" name="password">
+        <form action="../private/registration.php" method="post" class="registration-form">
+            <div class="name-input-container">
+                <input type="text" name="fname" placeholder="First Name">
+                <input type="text" name="lname" placeholder="Last Name">
+            </div>
+            <input type="email" name="email" placeholder="E-mail Address">
+            <input type="password" name="password" placeholder="Password">
             <div class="birthdate">
                 <select name="month">
                     <option value="january">January</option>
@@ -47,12 +49,12 @@
                         }
                     ?>
                 </select>
-                <select name="gender">
+            </div>
+            <select name="gender">
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                     <option value="other">Other</option>
-                </select>
-            </div>
+            </select>
         </form>
     </div>    
 </body>

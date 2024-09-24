@@ -118,3 +118,22 @@ body{
     font-size: 1.5rem;
     margin: 0;
 }
+
+/* Signup */
+
+.registration{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.registration-container{
+    width: 35vw;
+    height: 85vh;
+    padding: 2rem;
+    background-color: #eaeaea;;
+}
+.registration-form{
+    display: flex;
+    flex-direction: column;
+}
