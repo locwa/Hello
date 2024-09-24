@@ -61,16 +61,21 @@
         </div>
     </nav>
     <div class="hero">
-        <h1 class="headline">Connect with friends. Whenever, Wherever.</h1>
-        <p class="support">Hello provides a way to connect with your favorite people.</p>
-        <form action="../private/homepage_action.php" method="post">
-            <input type="email" name="email" class="landing-input" placeholder="E-mail Address">
-            <input type="password" name="password" class="landing-input" placeholder="Password">
-            <div class="buttons">
+        <div class="hero-text">
+            <h1 class="headline">Connect with friends. Whenever, Wherever.</h1>
+            <p class="support">Hello provides a way to connect with your favorite people.</p>
+        </div>
+        <div class="login-signup-container">
+            <form action="../private/homepage_action.php" method="post" class="login-form">
+                <input type="email" name="email" class="landing-input" placeholder="E-mail Address">
+                <input type="password" name="password" class="landing-input" placeholder="Password">
                 <button type="submit" name="login" class="login-btn">Log in</button>
-                <button type="submit" name="signup" class="signin-btn">Sign up</button>
-            </div>
-        </form>
+                <a href="" class="forgot-password-link">Forgot Password?</a>
+            </form>
+            <hr class="black-divider">
+            <button type="submit" name="signup" class="signin-btn">Sign up</button>
+        </div>
+        
     </div>
 </body>
 </html>

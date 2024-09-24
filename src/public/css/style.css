@@ -4,6 +4,10 @@ body{
     font-family: Lato;
     color: #fff;
 }
+.black-divider{
+    border: 1px solid #000000;
+    width: 20vw;
+}
 /* Homepage */
 
 .nav-logo{
@@ -11,13 +15,15 @@ body{
 }
 .hero{
     height: 80vh;
-    width: 50vw;
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     margin-left: 2rem;
 }   
+.hero-text{
+    width: 50vw;
+}
 .headline{
     font-size: 3.5rem;
     margin: 1.2rem 0;
@@ -25,33 +31,59 @@ body{
 .support{
     margin-bottom: 1rem;
 }
+.login-signup-container{
+    width: 30vw;
+    height: 22rem;
+    margin-right: 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #eaeaea;
+    border-radius: 20px;
+    border: 1.5px solid #9b9b9b;
+}
+.login-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .landing-input, .login-btn{
     margin: 0.5rem 0;
 }
 .landing-input{
     display: flex;
     flex-direction: column;
-    border: none;
-    border-radius: 20px;
+    border: 1px solid #a4a4a4;
+    border-radius: 10px;
     padding-left: 1rem;
     background-color: #eaeaea;
     color: #000000;
-    height: 2rem;
-    width: 13rem;
+    height: 3rem;
+    width: 19rem;
 }
 .login-btn, .signin-btn{
     padding: 0.6rem 1.3rem;
-    border: 0.2rem solid #000000;
-    border-radius: 20px;
+    border: none;
+    border-radius: 10px;
     font-weight: 600;
-    width: 6rem;
+    height: 2.8rem;
 }
 .login-btn{
     background-color: #000000;
     color: #e3cc16;
+    width: 18rem;
+}
+.forgot-password-link{
+    font-size: 0.9rem;
+    margin: 0.2rem 0;
+    color: #000000;
 }
 .signin-btn{
+    background-color: #e3cc16;
     color: #000000;
+    width: 14rem;
+    margin: 1rem 0;
 }
 
 /* Inbox */
