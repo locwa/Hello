@@ -13,6 +13,8 @@
 </head>
 <body class="registration">
     <div class="registration-container">
+        <h1 class="black-text">Sign up</h1>
+        <hr class="signup-black-divider">
         <form action="../private/registration.php" method="post" class="registration-form">
             <div class="name-input-container">
                 <input type="text" name="fname" placeholder="First Name">
