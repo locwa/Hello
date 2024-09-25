@@ -13,9 +13,9 @@
 </head>
 <body class="registration">
     <div class="registration-container">
-        <h1 class="black-text">Sign up</h1>
-        <hr class="signup-black-divider">
         <form action="../private/registration.php" method="post" class="registration-form">
+            <h1 class="black-text">Sign up</h1>
+            <hr class="signup-black-divider">
             <div class="name-input-container">
                 <input type="text" name="fname" placeholder="First Name" class="name input">
                 <input type="text" name="lname" placeholder="Last Name" class="name input">
@@ -26,23 +26,26 @@
             <div class="birthdate">
                 <select name="month" class="dropdown">
                     <option value="" disabled selected>Month</option>
-                    <option value="january">January</option>
-                    <option value="feburary">Feburary</option>
-                    <option value="march">March</option>
-                    <option value="april">April</option>
-                    <option value="may">May</option>
-                    <option value="june">June</option>
-                    <option value="july">July</option>
-                    <option value="august">August</option>
-                    <option value="september">September</option>
-                    <option value="october">October</option>
-                    <option value="november">November</option>
-                    <option value="december">December</option>
+                    <option value="01">January</option>
+                    <option value="02">Feburary</option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                    <option value="05">May</option>
+                    <option value="06">June</option>
+                    <option value="07">July</option>
+                    <option value="08">August</option>
+                    <option value="09">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
                 </select>
                 <select name="day" class="dropdown">
                     <option value="" disabled selected>Day</option>
                     <?php 
                         for ($i = 1; $i <= 31; $i++){
+                            if ($i < 10){
+                                $i = "0" . $i;
+                            }
                             echo '<option value="' . $i . '">' . $i . '</option>';      
                         }
                     ?>
@@ -64,7 +67,7 @@
                     <option value="other">Other</option>
             </select>
             <p class="black-text xs label">By clicking Sign Up, you agree to our Terms, Privacy Policy and Cookies Policy.</p>
-            <button type="submit" class="signup-btn register">Sign up</button>
+            <button type="submit" name="signup" class="signup-btn register">Sign up</button>
         </form>
     </div>    
 </body>
