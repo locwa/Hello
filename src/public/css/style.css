@@ -7,6 +7,13 @@ body{
 .black-text{
     color: #000000;
 }
+
+/* Font Sizes */
+.xs{
+    font-size: 0.8rem;
+    margin: 0;
+}
+
 /* Homepage */
 
 .nav-logo{
@@ -145,4 +152,23 @@ body{
 .registration-form{
     display: flex;
     flex-direction: column;
+}
+.name-input-container, .birthdate{
+    display: flex;
+    justify-content: space-between;
+}
+.input{
+    height: 2rem;
+    margin: 0.5rem 0;
+    padding-left: 0.5rem;
+}
+.name{
+    width: 16vw;
+}
+.label{
+    margin: 0.5rem 0 0;
+}
+.dropdown{
+    padding: 0.7rem 4.5rem 0.7rem 0.7rem;
+    margin: 0.5rem 0;
 }

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <?php 
-    $page_name = "Hello | A messaging app";
+    $page_name = "Signup | Hello";
     include_once("../private/includes/header.php");
     session_start();
     if(isset($_SESSION['check']) && $_SESSION['check'] == true){
@@ -17,13 +17,14 @@
         <hr class="signup-black-divider">
         <form action="../private/registration.php" method="post" class="registration-form">
             <div class="name-input-container">
-                <input type="text" name="fname" placeholder="First Name">
-                <input type="text" name="lname" placeholder="Last Name">
+                <input type="text" name="fname" placeholder="First Name" class="name input">
+                <input type="text" name="lname" placeholder="Last Name" class="name input">
             </div>
-            <input type="email" name="email" placeholder="E-mail Address">
-            <input type="password" name="password" placeholder="Password">
+            <input type="email" name="email" placeholder="E-mail Address" class="input">
+            <input type="password" name="password" placeholder="Password" class="input">
+            <p class="black-text xs label">Birthday</p>
             <div class="birthdate">
-                <select name="month">
+                <select name="month" class="dropdown">
                     <option value="" disabled selected>Month</option>
                     <option value="january">January</option>
                     <option value="feburary">Feburary</option>
@@ -38,7 +39,7 @@
                     <option value="november">November</option>
                     <option value="december">December</option>
                 </select>
-                <select name="day">
+                <select name="day" class="dropdown">
                     <option value="" disabled selected>Day</option>
                     <?php 
                         for ($i = 1; $i <= 31; $i++){
@@ -46,7 +47,7 @@
                         }
                     ?>
                 </select>
-                <select name="year">
+                <select name="year" class="dropdown">
                     <option value="" disabled selected>Year</option>
                     <?php
                         for ($i = intval(date("Y")); $i >= 1900; $i--){
@@ -55,7 +56,8 @@
                     ?>
                 </select>
             </div>
-            <select name="gender">
+            <p class="black-text xs label">Gender</p>
+            <select name="gender" class="dropdown">
                 <option value="" disabled selected>Select</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
