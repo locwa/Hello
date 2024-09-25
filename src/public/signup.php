@@ -63,6 +63,8 @@
                     <option value="female">Female</option>
                     <option value="other">Other</option>
             </select>
+            <p class="black-text xs label">By clicking Sign Up, you agree to our Terms, Privacy Policy and Cookies Policy.</p>
+            <button type="submit" class="signup-btn register">Sign up</button>
         </form>
     </div>    
 </body>

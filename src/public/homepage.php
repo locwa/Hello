@@ -72,7 +72,7 @@
                 <button type="submit" name="login" class="login-btn">Log in</button>
                 <a href="" class="forgot-password-link">Forgot Password?</a>
                 <hr class="black-divider">
-                <button type="submit" name="signup" class="signin-btn">Sign up</button>
+                <button type="submit" name="signup" class="signup-btn">Sign up</button>
             </form>
         </div>
         
