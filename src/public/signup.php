@@ -62,9 +62,9 @@
             <p class="black-text xs label">Gender</p>
             <select name="gender" class="dropdown">
                 <option value="" disabled selected>Select</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
+                    <option value="0">Male</option>
+                    <option value="1">Female</option>
+                    <option value="2">Other</option>
             </select>
             <p class="black-text xs label">By clicking Sign Up, you agree to our Terms, Privacy Policy and Cookies Policy.</p>
             <button type="submit" name="signup" class="signup-btn register">Sign up</button>
