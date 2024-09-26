@@ -47,7 +47,8 @@
                     />
                 </svg>
             </div>
-        </div>     
+        </div>    
+        <input type="text" name="inbox-search" placeholder="Search" class="inbox-search"> 
     </div>
     <div class="message msg-contents">
         <h1>hi</h1>
