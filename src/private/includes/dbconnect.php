@@ -2,7 +2,7 @@
     $user = "root";
     $pwd = "";
     $host = "localhost";
-    $dbname = "hello_accounts";
+    $dbname = "hello";
 
     $dsn = "mysql:host=". $host .";dbname=". $dbname;
 
