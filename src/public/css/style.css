@@ -118,6 +118,21 @@ body{
 .msg-contents{
     width: 65vw;
 }
+.inbox-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.new-chat-button{
+    background-color: #474747;
+    height: 2rem;
+    width: 2rem;
+    padding: 0.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+}
 .navbar{
     width: 4vw;
     margin-right: 0.1rem;
