@@ -13,6 +13,10 @@ body{
     font-size: 0.8rem;
     margin: 0;
 }
+.sm{
+    font-size: 1.1rem;
+    margin: 0;
+}
 
 /* Homepage */
 
@@ -151,6 +155,16 @@ body{
 .heading{
     font-size: 1.5rem;
     margin: 0;
+}
+.conversation-list{
+    margin-top: 1.2rem;
+}
+.conversation{
+    margin: 0.2rem 0;
+    height: 2.7rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 /* Signup */

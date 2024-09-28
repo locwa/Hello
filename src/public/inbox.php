@@ -49,7 +49,12 @@
             </div>
         </div>    
         <input type="text" name="inbox-search" placeholder="Search" class="inbox-search"> 
-        <?php include_once("../private/includes/conversations_retrieval.php");?>
+        <div class="conversation-list">
+            <div class="conversation">
+                <h4 class="sm">Jane Doe</h4>
+                <p class="xs">message</p>
+            </div>
+        </div>
     </div>
     <div class="message msg-contents">
         <h1>hi</h1>
