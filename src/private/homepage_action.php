@@ -6,6 +6,7 @@
         $email = $_POST['email'];
         $pwd = $_POST['password'];
         if ($email && $pwd){
+            $pdo = new DBConnection();
             $stmt = $pdo->prepare("SELECT email, pwd, id, first_name, last_name FROM accounts WHERE email = ? AND pwd = ?");
             $stmt->execute([$email, $pwd]);
             $user_cred = $stmt->fetch();
