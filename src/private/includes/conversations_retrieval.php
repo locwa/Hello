@@ -37,7 +37,15 @@
         $conversations_lname = $conversations[$i]['last_name'];
         $conversations_id = $conversations[$i]['conversation_id']; 
         $sender_id = $conversations[$i]['id'];
-        $msg_preview = $conversation_details->messagePreview($conversations_id);
+
+        $sent_message = $conversation_details->messagePreview($conversations_id);
+        $msg_preview = $sent_message['text_content'];
+        $sender_id = $sent_message['sender_id'];
+        
+        if($sender_id == $id){
+            $msg_preview = "You: ".$sent_message['text_content'];
+        }
+
         echo "
         <div class='conversation'>
                 <h4 class='sm'>".$conversations_fname." ".$conversations_lname."</h4>
