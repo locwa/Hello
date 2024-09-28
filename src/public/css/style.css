@@ -160,8 +160,9 @@ body{
     margin-top: 1.2rem;
 }
 .conversation{
-    margin: 0.2rem 0;
-    height: 2.7rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.8rem;
+    height: 2.5rem;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
