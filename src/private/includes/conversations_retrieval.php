@@ -1,5 +1,6 @@
 <?php
     include_once("dbconnect.php");
+    include_once("message_api.php");
     $id = $_SESSION["id"];
     $first_name = $_SESSION["first_name"];
     $last_name = $_SESSION["last_name"];
@@ -22,14 +23,25 @@
                     )
                 ";
 
+    // Executes the query for getting all conversations
+    $pdo = new DBConnection();
     $stmt = $pdo->prepare($query);
     $stmt->execute([$first_name, $last_name, $id, $id]);
     $conversations = $stmt->fetchAll();
+
+    // Message API for preview message in conversation list
+    $conversation_details = new Conversation();
+
     for ($i = 0; $i < $stmt->rowCount(); $i++){
+        $conversations_fname = $conversations[$i]['first_name'];
+        $conversations_lname = $conversations[$i]['last_name'];
+        $conversations_id = $conversations[$i]['conversation_id']; 
+        $sender_id = $conversations[$i]['id'];
+        $msg_preview = $conversation_details->messagePreview($conversations_id);
         echo "
         <div class='conversation'>
-                <h4 class='sm'>" . $conversations[$i]['first_name'] . " " . $conversations[$i]['last_name'] . "</h4>
-                <p class='xs'>message</p>
+                <h4 class='sm'>".$conversations_fname." ".$conversations_lname."</h4>
+                <p class='xs'>".$msg_preview."</p>
         </div>
             ";
     }  
