@@ -193,10 +193,12 @@ body{
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
+    padding-bottom: 0.5rem;
 }
 .chat{
     width: 95%;
-    height: 3rem;
+    min-height: 2rem;
+    height: auto;
 }
 .received{
     display: flex;
@@ -207,10 +209,14 @@ body{
     justify-content: flex-end;
 }
 .bubble-received, .bubble-sent{
-    height: 1.5rem;
-    width: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: 1.2rem;
+    height: auto;
+    max-width: 70%;
     border-radius: 20px;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.9rem;
 }
 .bubble-received{
     background-color: #2e2e2e;
@@ -218,6 +224,10 @@ body{
 .bubble-sent{
     background-color: #e3cc16;
     color: #000000;
+}
+.chat-text{
+    font-size: 1em;
+    margin: 0;
 }
 .message-input{
     background-color: #3a3a3a;
