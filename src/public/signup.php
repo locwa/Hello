@@ -9,7 +9,7 @@
         $gender = $_POST['gender'];
         
         $accounts = new Accounts();
-        $accounts->registerAccount($fname, $lname, $email, $password, $birthdate, $gender);
+        $accounts->register($fname, $lname, $email, $password, $birthdate, $gender);
     }
 ?>
 <!DOCTYPE html>
