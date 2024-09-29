@@ -1,9 +1,27 @@
+<?php
+    session_start();
+    include_once("../private/includes/hello_api.php");
+
+    if (isset($_POST['login'])){
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        if ($email && $password){
+            $accounts = new Accounts();
+            $accounts->login($email, $password); 
+        }
+        else {
+            header("Location: ../public/homepage.php");
+        }
+    }
+    else if (isset($_POST['signup'])){
+        header("Location: ../public/signup.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <?php 
     $page_name = "Hello | A messaging app";
     include_once("../private/includes/header.php");
-    session_start();
     if(isset($_SESSION['check']) && $_SESSION['check'] == true){
         header("location: inbox.php");
         exit;
@@ -66,7 +84,7 @@
             <p class="support">Hello provides a way to connect with your favorite people.</p>
         </div>
         <div class="login-signup-container">
-            <form action="../private/homepage_action.php" method="post" class="login-form">
+            <form action="homepage.php" method="post" class="login-form">
                 <input type="email" name="email" class="landing-input" placeholder="E-mail Address">
                 <input type="password" name="password" class="landing-input" placeholder="Password">
                 <button type="submit" name="login" class="login-btn">Log in</button>

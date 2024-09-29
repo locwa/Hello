@@ -5,7 +5,6 @@
     $last_name = $_SESSION["last_name"];
 
 
-    // Message API for preview message in conversation list
     $conversation = new Conversation();
     $row_count = $conversation->fetchConversations($first_name, $last_name, $id)->rowCount();
     $conversation_list = $conversation->fetchConversations($first_name, $last_name, $id)->fetchAll();

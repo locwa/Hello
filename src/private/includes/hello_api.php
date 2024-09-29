@@ -9,7 +9,7 @@
 
             $dsn = "mysql:host=". $host .";dbname=". $dbname;
 
-            // connectton to database
+            // connection to database
             try{
                 parent::__construct($dsn, $user, $pwd);
                 $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -20,7 +20,7 @@
         }
     }
     class Accounts{
-        function registerAccount($fname, $lname, $email, $password, $birthdate, $gender){
+        function register($fname, $lname, $email, $password, $birthdate, $gender){
             $query =   "INSERT INTO 
                             accounts (first_name, last_name, email, pwd, birthdate, gender, join_date) 
                         VALUES
@@ -36,6 +36,32 @@
             }
             else{
                 echo "failed";
+            }
+        }
+        function login ($email, $password){
+            $query =    "SELECT 
+                            email, pwd, id, first_name, last_name 
+                        FROM 
+                            accounts 
+                        WHERE 
+                            email = ? AND pwd = ?
+                        ";
+
+            $dbconnect = new DBConnection();
+            $stmt = $dbconnect->prepare($query);
+            $stmt->execute([$email, $password]);
+            $user_cred = $stmt->fetch();
+            if ($user_cred){
+                $_SESSION["check"] = true;
+                $_SESSION["id"] = $user_cred["id"];
+                $_SESSION["first_name"] = $user_cred["first_name"];
+                $_SESSION["last_name"] = $user_cred["last_name"];
+                header("Location: ../public/inbox.php");
+                exit();
+            }
+            else {
+                header("Location: ../public/homepage.php");
+                exit();
             }
         }
     }
