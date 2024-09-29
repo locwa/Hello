@@ -26,10 +26,18 @@
                         VALUES
                             (?, ?, ?, ?, ?, ?, UTC_TIMESTAMP())
                         ";
+            $insert_values = [
+                htmlspecialchars($fname),
+                htmlspecialchars($lname),
+                htmlspecialchars($email),
+                htmlspecialchars($password),
+                $birthdate,
+                $gender
+            ];
             
             $dbconnect = new DBConnection();
             $stmt = $dbconnect->prepare($query);
-            $execute_status = $stmt->execute([$fname, $lname, $email, $password, $birthdate, $gender]);
+            $execute_status = $stmt->execute($insert_values);
             
             if ($execute_status){
                 header("Location: ../public/homepage.php");
