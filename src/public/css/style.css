@@ -11,11 +11,11 @@ body{
 /* Font Sizes */
 .xs{
     font-size: 0.8rem;
-    margin: 0;
+    margin: 0 0 0.1rem 0;
 }
 .sm{
-    font-size: 1.1rem;
-    margin: 0;
+    font-size: 1.2rem;
+    margin: 0 0 0.1rem 0;
 }
 
 /* Homepage */
@@ -110,17 +110,23 @@ body{
 .message{
     background-color: #1b1a1a;
     border-radius: 20px;
-    height: 90vh;
+    height: 93vh;
 }
 .msg-list, .msg-contents, .navbar{
     margin: 1rem;
-    padding: 1.5rem;
+    padding: 1.5rem 0 0 0;
 }
 .msg-list{
     width: 30vw;
 }
+.msg-list-content{
+    margin: 0 1.5rem;
+}
 .msg-contents{
     width: 65vw;
+    display: flex;
+    flex-direction: column;
+    height: 93.5vh;
 }
 .inbox-header{
     display: flex;
@@ -149,7 +155,6 @@ body{
 .navbar{
     width: 4vw;
     margin-right: 0.1rem;
-    padding: 1.5rem 0.3rem;
     border-radius: 20px;
 }
 .heading{
@@ -166,6 +171,18 @@ body{
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+}
+.message-input, .message-header{
+    height: 3em;
+}
+.message-roll{
+    background-color: #474747;
+    flex-grow: 10;
+}
+.message-input{
+    background-color: #3a3a3a;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 /* Signup */
