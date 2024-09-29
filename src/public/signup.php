@@ -1,3 +1,17 @@
+<?php
+    if (isset($_POST['signup'])){
+        include_once("../private/includes/hello_api.php");
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $birthdate = $_POST['year'] . $_POST['month'] . $_POST['day'];
+        $gender = $_POST['gender'];
+        
+        $accounts = new Accounts();
+        $accounts->registerAccount($fname, $lname, $email, $password, $birthdate, $gender);
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +27,7 @@
 </head>
 <body class="registration">
     <div class="registration-container">
-        <form action="../private/registration.php" method="post" class="registration-form">
+        <form action="signup.php" method="post" class="registration-form">
             <h1 class="black-text">Sign up</h1>
             <hr class="signup-black-divider">
             <div class="name-input-container">
