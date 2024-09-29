@@ -263,16 +263,31 @@ body{
 }
 .upload-button, .message-draft{
     margin-right: 0.8rem;
-    width: 20;
-    height: 20;
+}
+.upload-button{
+    color: #e7e6e6;
 }
 .message-draft{
+    display: flex;
+    width: 90%;
+}
+.message-text{
     width: 100%;
     padding: 0.5rem 0.9rem;
     border: none;
     border-radius: 20px;
     background-color: #383838;
     color: #ffffff;
+}
+.send-message-button{
+    background-color: #00000000;
+    border: none;
+}
+.send{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
 }
 
 /* Signup */
