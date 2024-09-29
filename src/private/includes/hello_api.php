@@ -19,6 +19,26 @@
             }
         }
     }
+    class Accounts{
+        function registerAccount($fname, $lname, $email, $password, $birthdate, $gender){
+            $query =   "INSERT INTO 
+                            accounts (first_name, last_name, email, pwd, birthdate, gender, join_date) 
+                        VALUES
+                            (?, ?, ?, ?, ?, ?, UTC_TIMESTAMP())
+                        ";
+            
+            $dbconnect = new DBConnection();
+            $stmt = $dbconnect->prepare($query);
+            $execute_status = $stmt->execute([$fname, $lname, $email, $password, $birthdate, $gender]);
+            
+            if ($execute_status){
+                header("Location: ../public/homepage.php");
+            }
+            else{
+                echo "failed";
+            }
+        }
+    }
     class Conversation{
         function fetchConversations ($first_name, $last_name, $id){
             $query =   "SELECT DISTINCT
