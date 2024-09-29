@@ -60,11 +60,22 @@
             <div class="recepient-details">
                 <h4 class="sm">Jane Doe</h4>
                 <p class="xs">online</p>
+            </div>  
+        </div>
+        <div class="message-roll">
+            <div class="chat received">
+                <div class="bubble-received">
+                    <p class="sm">hi</p>
+                </div>
+            </div>
+            <div class="chat sent">
+                <div class="bubble-sent">
+                    <p class="sm">hello</p>
+                </div>
             </div>
         </div>
-        <div class="message-roll"></div>
         <div class="message-input">
-
+            <input type="text" name="message">
         </div>
     </div>
 </body>

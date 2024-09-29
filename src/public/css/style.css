@@ -11,11 +11,11 @@ body{
 /* Font Sizes */
 .xs{
     font-size: 0.8rem;
-    margin: 0 0 0.1rem 0;
+    margin: 0;
 }
 .sm{
     font-size: 1.2rem;
-    margin: 0 0 0.1rem 0;
+    margin: 0;
 }
 
 /* Homepage */
@@ -178,6 +178,9 @@ body{
 }
 .message-header{
     display: flex;
+    background-color: #2e2e2e;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
     padding: 0.5rem 1.5rem;
 }
 .recepient-details{
@@ -186,8 +189,35 @@ body{
     justify-content: center;
 }
 .message-roll{
-    background-color: #474747;
     flex-grow: 10;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+.chat{
+    width: 95%;
+    height: 3rem;
+}
+.received{
+    display: flex;
+    justify-content: flex-start;
+}
+.sent{
+    display: flex;
+    justify-content: flex-end;
+}
+.bubble-received, .bubble-sent{
+    height: 1.5rem;
+    width: 3rem;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+}
+.bubble-received{
+    background-color: #2e2e2e;
+}
+.bubble-sent{
+    background-color: #e3cc16;
+    color: #000000;
 }
 .message-input{
     background-color: #3a3a3a;
