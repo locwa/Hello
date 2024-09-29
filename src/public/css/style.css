@@ -230,9 +230,14 @@ body{
     margin: 0;
 }
 .message-input{
-    background-color: #3a3a3a;
+    background-color: #2e2e2e;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    display: flex;
+    align-items: center;
+}
+.paperclip{
+    margin: 0 1rem;
 }
 
 /* Signup */
