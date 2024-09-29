@@ -54,7 +54,10 @@
         </div>
     </div>
     <div class="message msg-contents">
-        <h1>hi</h1>
+        <div class="header">
+            <h4 class="sm">Jane Doe</h4>
+            <p class="xs">online</p>
+        </div>
     </div>
 </body>
 </html>
