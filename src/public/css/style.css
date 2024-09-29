@@ -242,11 +242,13 @@ body{
     display: flex;
     align-items: center;
 }
-.upload-button{
+.upload-button, .message-draft{
     margin-right: 0.8rem;
+    width: 20;
+    height: 20;
 }
 .message-draft{
-    width: 80%;
+    width: 100%;
     padding: 0.5rem 0.9rem;
     border: none;
     border-radius: 20px;
