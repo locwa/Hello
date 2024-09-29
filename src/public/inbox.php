@@ -57,8 +57,10 @@
     </div>
     <div class="message msg-contents">
         <div class="message-header">
-            <h4 class="sm">Jane Doe</h4>
-            <p class="xs">online</p>
+            <div class="recepient-details">
+                <h4 class="sm">Jane Doe</h4>
+                <p class="xs">online</p>
+            </div>
         </div>
         <div class="message-roll"></div>
         <div class="message-input">

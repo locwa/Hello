@@ -112,7 +112,7 @@ body{
     border-radius: 20px;
     height: 93vh;
 }
-.msg-list, .msg-contents, .navbar{
+.msg-list, .navbar{
     margin: 1rem;
     padding: 1.5rem 0 0 0;
 }
@@ -123,10 +123,11 @@ body{
     margin: 0 1.5rem;
 }
 .msg-contents{
+    margin: 1rem;
     width: 65vw;
     display: flex;
     flex-direction: column;
-    height: 93.5vh;
+    height: 96.5vh;
 }
 .inbox-header{
     display: flex;
@@ -174,6 +175,15 @@ body{
 }
 .message-input, .message-header{
     height: 3em;
+}
+.message-header{
+    display: flex;
+    padding: 0.5rem 1.5rem;
+}
+.recepient-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .message-roll{
     background-color: #474747;
