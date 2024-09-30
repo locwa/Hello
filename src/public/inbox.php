@@ -90,6 +90,9 @@
             </div>
             <input type="text" name="inbox-search" placeholder="Search" class="inbox-search"> 
             <div id="conversationList">
+                <div class="conversation-loader-container">
+                    <div class="loader"></div>
+                </div>
             </div>
         </div>    
     </div>

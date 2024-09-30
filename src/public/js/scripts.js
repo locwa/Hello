@@ -1,6 +1,3 @@
-// DOM elements
-;
-
 // Intervals for retrievals
 setInterval(getConversations, 1000);
 
@@ -10,6 +7,20 @@ function getConversations(){
     xhr.open("GET", "../private/includes/conversations_retrieval.php", "true");
     xhr.onload = function(){
         if (this.statusText = "200"){
+            document.getElementById("conversationList").innerHTML = "";
+            document.getElementById("conversationList").innerHTML = this.responseText;
+            console.log("hello")
+        }
+    }
+    xhr.send();
+}
+
+function getMessages(){
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", "../private/includes/conversations_retrieval.php", "true");
+    xhr.onload = function(){
+        if (this.statusText = "200"){
+            document.getElementById("conversationList").innerHTML = "";
             document.getElementById("conversationList").innerHTML = this.responseText;
             console.log("hello")
         }

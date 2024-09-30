@@ -18,6 +18,31 @@ body{
     margin: 0;
 }
 
+/* Loading Spinner */
+.conversation-loader-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 80%;
+}
+.loader {
+    width: 50px;
+    padding: 8px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #3a3a3a;
+    --_m:
+            conic-gradient(#0000 10%,#000),
+            linear-gradient(#000 0 0) content-box;
+    -webkit-mask: var(--_m);
+    mask: var(--_m);
+    -webkit-mask-composite: source-out;
+    mask-composite: subtract;
+    animation: l3 1s infinite linear;
+}
+@keyframes l3 {to{transform: rotate(1turn)}}
+
 /* Homepage */
 
 .nav-logo{
@@ -121,6 +146,7 @@ body{
 }
 .msg-list-content{
     margin: 0 1.5rem;
+    height: 100%;
 }
 .msg-contents{
     margin: 1rem;
@@ -183,6 +209,7 @@ body{
 }
 #conversationList{
     margin-top: 1.2rem;
+    height: 100%;
 }
 .conversation{
     margin-top: 0.2rem;
