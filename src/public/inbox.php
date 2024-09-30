@@ -9,6 +9,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php include_once("../private/includes/header.php");?>
+<script src="./js/scripts.js"></script>
 <body class="inbox">
     <nav class="message navbar">
         <div class="nav-button-group">
@@ -88,8 +89,7 @@
                 </div>
             </div>
             <input type="text" name="inbox-search" placeholder="Search" class="inbox-search"> 
-            <div class="conversation-list">
-                <?php include("../private/includes/conversations_retrieval.php"); ?>
+            <div id="conversationList">
             </div>
         </div>    
     </div>
