@@ -1,5 +1,5 @@
 <?php
-    include_once("hello_api.php");
+    include_once("./includes/hello_api.php");
     session_start();
     $id = $_SESSION["id"];
     $first_name = $_SESSION["first_name"];
