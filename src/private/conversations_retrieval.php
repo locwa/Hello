@@ -23,12 +23,12 @@
         if($sender_id == $id){
             $msg_preview = "You: ".$sent_message['text_content'];
         }
-
+        echo($_GET['c']);
         echo "
-        <div class='conversation'>
+        <a id='".$conversations_id."' class='conversation'>
                 <h4 class='sm'>".$conversations_fname." ".$conversations_lname."</h4>
                 <p class='xs'>".$msg_preview."</p>
-        </div>
+        </a>
             ";
     }  
 ?>
