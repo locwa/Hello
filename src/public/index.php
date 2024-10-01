@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['check']) && $_SESSION['check'] === true){
-    header("Location: inbox.php");
+    header("Location: inbox.php?#");
     die();
 }
 else{
