@@ -23,9 +23,8 @@
         if($sender_id == $id){
             $msg_preview = "You: ".$sent_message['text_content'];
         }
-        echo($_GET['c']);
         echo "
-        <a id='".$conversations_id."' class='conversation'>
+        <a href='#' id='".$conversations_id."' class='conversation' onclick='getCID(this.id)'>
                 <h4 class='sm'>".$conversations_fname." ".$conversations_lname."</h4>
                 <p class='xs'>".$msg_preview."</p>
         </a>

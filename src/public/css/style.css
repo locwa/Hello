@@ -209,7 +209,11 @@ body{
 }
 #conversationList{
     margin-top: 1.2rem;
-    height: 100%;
+    height: auto;
+}
+#conversationList > *{
+    text-decoration: none;
+    color: #ffffff;
 }
 .conversation{
     margin-top: 0.2rem;
