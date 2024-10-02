@@ -235,7 +235,8 @@ body{
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     padding: 0.5rem 1.5rem;
-    flex-grow: 0.2;
+    min-height: 3rem;
+    max-height: 3rem;
 }
 .recepient-details{
     display: flex;
@@ -285,7 +286,8 @@ body{
     margin: 0;
 }
 .message-input{
-    flex-grow: 0.1;
+    min-height: 3rem;
+    max-height: 3rem;
     background-color: #2e2e2e;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
