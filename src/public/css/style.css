@@ -7,6 +7,9 @@ body{
 .black-text{
     color: #000000;
 }
+::-webkit-scrollbar {
+    width: 10px;
+}
 
 /* Font Sizes */
 .xs{
@@ -232,18 +235,20 @@ body{
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     padding: 0.5rem 1.5rem;
+    flex-grow: 0.2;
 }
 .recepient-details{
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.message-roll{
-    flex-grow: 10;
+#messageRoll{
+    flex-grow: 7;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
     padding-bottom: 0.5rem;
+    overflow-y: scroll;
 }
 .chat{
     width: 95%;
@@ -280,6 +285,7 @@ body{
     margin: 0;
 }
 .message-input{
+    flex-grow: 0.1;
     background-color: #2e2e2e;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
