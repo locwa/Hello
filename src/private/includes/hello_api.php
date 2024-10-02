@@ -132,7 +132,7 @@
             $stmt->execute([$conversation_id]);
             return $stmt;
         }
-        function getRecepientName (int $conversation_id){
+        function getRecepientName (int $conversation_id, int $user_id){
             $query  =   "SELECT DISTINCT
                             a.first_name, a.last_name
                         FROM
@@ -147,7 +147,7 @@
 
             $dbconnect = new DBConnection();
             $stmt = $dbconnect->prepare($query);
-            $stmt->execute([$conversation_id, $_SESSION["id"]]);
+            $stmt->execute([$conversation_id, $user_id]);
             return $stmt;
         }
     }
