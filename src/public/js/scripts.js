@@ -31,7 +31,6 @@ function getMessage(convId){
         if (this.statusText = "200"){
             document.getElementById("messageRoll").innerHTML = "";
             document.getElementById("messageRoll").innerHTML = this.responseText;
-            document.getElementById(convId).style.backgroundColor = "#4f4f4f"
         }
     }
     xhr.send();
