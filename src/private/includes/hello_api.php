@@ -132,4 +132,22 @@
             $stmt->execute([$conversation_id]);
             return $stmt;
         }
+        function getRecepientName (int $conversation_id){
+            $query  =   "SELECT DISTINCT
+                            a.first_name, a.last_name
+                        FROM
+                            accounts a
+                        INNER JOIN
+                            conversations c ON c.user1 = a.id OR c.user2 = a.id
+                        WHERE 
+                            c.conversation_id = ? 
+                        AND 
+                            a.id != ?;
+                            ";
+
+            $dbconnect = new DBConnection();
+            $stmt = $dbconnect->prepare($query);
+            $stmt->execute([$conversation_id, $_SESSION["id"]]);
+            return $stmt;
+        }
     }
