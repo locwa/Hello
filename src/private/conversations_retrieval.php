@@ -14,7 +14,7 @@
         $conversations_fname = $conversation_list[$i]['first_name'];
         $conversations_lname = $conversation_list[$i]['last_name'];
         $conversations_id = $conversation_list[$i]['conversation_id']; 
-        $sender_id = $conversation_list[$i]['id'];
+        $other_id = $conversation_list[$i]['id'];
 
         $sent_message = $conversation->messagePreview($conversations_id);
         $msg_preview = $sent_message['text_content'];
@@ -24,7 +24,7 @@
             $msg_preview = "You: ".$sent_message['text_content'];
         }
         echo "
-        <a href='#' id='".$conversations_id."' class='conversation' onclick='getConvID(this.id)'>
+        <a href='#' id='".$conversations_id."' class='conversation' onclick='getConvID(this.id, $other_id)'>
                 <h4 class='sm'>".$conversations_fname." ".$conversations_lname."</h4>
                 <p class='xs'>".$msg_preview."</p>
         </a>
