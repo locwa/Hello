@@ -226,10 +226,10 @@ body{
     justify-content: space-between;
     flex-direction: column;
 }
-.message-input, .message-header{
+.message-input, #messageHeader{
     height: 3em;
 }
-.message-header{
+#messageHeader{
     display: flex;
     background-color: #212121;
     border-top-left-radius: 20px;
@@ -238,10 +238,15 @@ body{
     min-height: 3rem;
     max-height: 3rem;
 }
-.recepient-details{
+.recipient-details{
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+.empty-message{
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 #messageRoll{
     flex-grow: 7;

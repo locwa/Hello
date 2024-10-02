@@ -97,22 +97,11 @@
         </div>    
     </div>
     <div class="message msg-contents">
-        <div class="message-header">
-            <div class="recepient-details">
-                <h4 class="sm">Jane Doe</h4>
-                <p class="xs">online</p>
-            </div>  
+        <div id="messageHeader">
         </div>
         <div id="messageRoll">
-            <div class="chat received">
-                <div class="bubble-received">
-                    <p class="chat-text">hi</p>
-                </div>
-            </div>
-            <div class="chat sent">
-                <div class="bubble-sent">
-                    <p class="chat-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi eveniet aperiam doloribus rem nam aut? Perferendis, asperiores placeat eveniet temporibus sequi consectetur. Tenetur similique sapiente repudiandae provident debitis! Nam, vitae!</p>
-                </div>
+            <div class="empty-message">
+                <p>a;sfjd;skfj;dasj;l</p>
             </div>
         </div>
         <div class="message-input">
