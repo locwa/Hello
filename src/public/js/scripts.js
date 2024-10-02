@@ -18,7 +18,6 @@ function getConversations(){
 }
 
 function getConvID(cid){
-    console.log(cid);
     conversationID = cid;
     getMessage(conversationID);
 }
