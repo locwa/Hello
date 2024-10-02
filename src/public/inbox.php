@@ -101,7 +101,7 @@
         </div>
         <div id="messageRoll">
             <div class="empty-message">
-                <p>a;sfjd;skfj;dasj;l</p>
+                <p>Start a new message, or select a conversation on the chats window</p>
             </div>
         </div>
         <div class="message-input">
