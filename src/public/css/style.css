@@ -316,7 +316,7 @@ body{
     display: flex;
     width: 90%;
 }
-.message-text{
+#messageText{
     width: 100%;
     padding: 0.5rem 0.9rem;
     border: none;

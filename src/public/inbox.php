@@ -155,8 +155,8 @@
                         d="M14 14l1 -1c.928 -.893 2.072 -.893 3 0l3 3" 
                     />
                 </svg>
-                <form action="inbox.php" class="message-draft" method="post">
-                    <input class="message-text" type="text" name="message" placeholder="Aa">
+                <form action="" id="messageDraft" class="message-draft" method="post" onsubmit="sendMessage()">
+                    <input id="messageText" type="text" name="message" placeholder="Aa">
                     <button type="submit" name="send-message" class="send-message-button">
                         <svg  
                             xmlns="http://www.w3.org/2000/svg"  
