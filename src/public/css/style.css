@@ -260,6 +260,7 @@ body{
     width: 95%;
     min-height: 2rem;
     height: auto;
+    margin: 0.1rem 0;
 }
 .received{
     display: flex;
