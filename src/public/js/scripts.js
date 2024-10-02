@@ -20,6 +20,7 @@ function getConversations(){
 function getConvID(cid){
     conversationID = cid;
     getMessage(conversationID);
+    getMessageRecepient(conversationID);
 }
 
 function getMessage(convId){
@@ -30,6 +31,19 @@ function getMessage(convId){
         if (this.statusText = "200"){
             document.getElementById("messageRoll").innerHTML = "";
             document.getElementById("messageRoll").innerHTML = this.responseText;
+        }
+    }
+    xhr.send();
+}
+
+function getMessageRecepient(convId){
+    let url = "../private/recipient_retrieval.php?c=" + convId;
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", url, "true");
+    xhr.onload = function(){
+        if (this.statusText = "200"){
+            document.getElementById("messageHeader").innerHTML = "";
+            document.getElementById("messageHeader").innerHTML = this.responseText;
         }
     }
     xhr.send();
