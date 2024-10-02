@@ -103,7 +103,7 @@
                 <p class="xs">online</p>
             </div>  
         </div>
-        <div class="message-roll">
+        <div id="messageRoll">
             <div class="chat received">
                 <div class="bubble-received">
                     <p class="chat-text">hi</p>
