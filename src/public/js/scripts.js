@@ -17,7 +17,22 @@ function getConversations(){
     xhr.send();
 }
 
-function getCID(cid){
+function getConvID(cid){
     console.log(cid);
     conversationID = cid;
+    getMessage(conversationID);
+}
+
+function getMessage(convId){
+    let url = "../private/messages_retrieval.php?c=" + convId;
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", url, "true");
+    xhr.onload = function(){
+        if (this.statusText = "200"){
+            document.getElementById("messageRoll").innerHTML = "";
+            document.getElementById("messageRoll").innerHTML = this.responseText;
+            document.getElementById(convId).style.backgroundColor = "#4f4f4f"
+        }
+    }
+    xhr.send();
 }
