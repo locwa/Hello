@@ -3,6 +3,7 @@ setInterval(getConversations, 1000);
 
 // conversation ID
 let conversationID = 0;
+let otherID = 0;
 
 // Functions
 function getConversations(){
@@ -17,8 +18,9 @@ function getConversations(){
     xhr.send();
 }
 
-function getConvID(cid){
+function getConvID(cid, oid){
     conversationID = cid;
+    otherID = oid;
     getMessage(conversationID);
     getMessageRecipient(conversationID);
 }
@@ -58,10 +60,9 @@ function sendMessage() {
     xhr.onload = function(){
         if (this.statusText = "200"){
             document.getElementById("messageText").value = "";
-            document.getElementById("messageRoll").prepend(this.responseText);
+            document.getElementById("messageRoll").insertAdjacentHTML("afterbegin", this.responseText);
         }
     }
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.send("m=" + message);
-
+    xhr.send("m=" + message + "&oid=" + otherID + "&c=" + conversationID);
 }

@@ -150,4 +150,16 @@
             $stmt->execute([$conversation_id, $user_id]);
             return $stmt;
         }
+        function sendMessage($sender_id, $receiver_id, $text_content, $conversation_id)
+        {
+            $query =   "INSERT INTO 
+                            messages (sender_id, receiver_id, text_content, timedate, conversation_id) 
+                        VALUES
+                            (?, ?, ?, UTC_TIMESTAMP(), ?)
+                        ";
+            $dbconnect = new DBConnection();
+            $stmt = $dbconnect->prepare($query);
+            $stmt->execute([$sender_id, $receiver_id, $text_content, $conversation_id]);
+            return $stmt;
+        }
     }
