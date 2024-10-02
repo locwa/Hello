@@ -130,7 +130,6 @@
             $dbconnect = new DBConnection();
             $stmt = $dbconnect->prepare($query);
             $stmt->execute([$conversation_id]);
-            $res = $stmt->fetch();
-            return $res;
+            return $stmt;
         }
     }
