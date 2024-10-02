@@ -7,9 +7,9 @@ let conversationID = 0;
 // Functions
 function getConversations(){
     let xhr = new XMLHttpRequest();
-    xhr.open("GET", "../private/conversations_retrieval.php", "true");
+    xhr.open("GET", "../private/conversations_retrieval.php", true);
     xhr.onload = function(){
-        if (this.statusText = "200"){
+        if (this.statusText === "200"){
             document.getElementById("conversationList").innerHTML = "";
             document.getElementById("conversationList").innerHTML = this.responseText;
         }
@@ -20,15 +20,15 @@ function getConversations(){
 function getConvID(cid){
     conversationID = cid;
     getMessage(conversationID);
-    getMessageRecepient(conversationID);
+    getMessageRecipient(conversationID);
 }
 
 function getMessage(convId){
     let url = "../private/messages_retrieval.php?c=" + convId;
     let xhr = new XMLHttpRequest();
-    xhr.open("GET", url, "true");
+    xhr.open("GET", url, true);
     xhr.onload = function(){
-        if (this.statusText = "200"){
+        if (this.statusText === "200"){
             document.getElementById("messageRoll").innerHTML = "";
             document.getElementById("messageRoll").innerHTML = this.responseText;
         }
@@ -36,12 +36,12 @@ function getMessage(convId){
     xhr.send();
 }
 
-function getMessageRecepient(convId){
+function getMessageRecipient(convId){
     let url = "../private/recipient_retrieval.php?c=" + convId;
     let xhr = new XMLHttpRequest();
-    xhr.open("GET", url, "true");
+    xhr.open("GET", url, true);
     xhr.onload = function(){
-        if (this.statusText = "200"){
+        if (this.statusText === "200"){
             document.getElementById("messageHeader").innerHTML = "";
             document.getElementById("messageHeader").innerHTML = this.responseText;
         }
