@@ -24,7 +24,7 @@
             $msg_preview = "You: ".$sent_message['text_content'];
         }
         echo "
-        <a href='#' id='".$conversations_id."' class='conversation' onclick='getCID(this.id)'>
+        <a href='#' id='".$conversations_id."' class='conversation' onclick='getConvID(this.id)'>
                 <h4 class='sm'>".$conversations_fname." ".$conversations_lname."</h4>
                 <p class='xs'>".$msg_preview."</p>
         </a>
