@@ -156,7 +156,7 @@
                     />
                 </svg>
                 <form action="" id="messageDraft" class="message-draft" method="post" onsubmit="sendMessage()">
-                    <input id="messageText" type="text" name="message" placeholder="Aa">
+                    <input id="messageText" type="text" name="message" placeholder="Aa" autocomplete="off">
                     <button type="submit" name="send-message" class="send-message-button">
                         <svg  
                             xmlns="http://www.w3.org/2000/svg"  
