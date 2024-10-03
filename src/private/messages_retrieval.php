@@ -6,6 +6,7 @@
     $messages = new Messages();
     $row_count = $messages->getMessages($conv_id)->rowCount();
     $message_roll = $messages->getMessages($conv_id)->fetchAll();
+    $_SESSION["msg_id"] = $message_roll[0]["message_id"];
 
     for($i = 0; $i<$row_count; $i++){
         $sender_id = $message_roll[$i]['sender_id'];

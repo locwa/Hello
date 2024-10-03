@@ -1,6 +1,7 @@
 <?php
     include("../private/includes/hello_api.php");
     session_start();
+    error_reporting(E_ALL ^ E_WARNING);
 
     $id = $_SESSION["id"];
     $conv_id = $_POST["c"];
