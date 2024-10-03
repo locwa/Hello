@@ -7,12 +7,12 @@ let otherID = 0;
 
 // Functions
 function getLatest(){
-    getConversations();
+    getConversations(conversationID);
     getLatestMessage(conversationID);
 }
-function getConversations(){
+function getConversations(convID){
     let xhr = new XMLHttpRequest();
-    xhr.open("GET", "../private/conversations_retrieval.php", true);
+    xhr.open("GET", "../private/conversations_retrieval.php?c=" + convID, true);
     xhr.onload = function(){
         if (this.statusText = "200"){
             document.getElementById("conversationList").innerHTML = "";
@@ -37,6 +37,11 @@ function getMessage(convId){
         if (this.statusText = "200"){
             document.getElementById("messageRoll").innerHTML = "";
             document.getElementById("messageRoll").innerHTML = this.responseText;
+            let conversationElements = document.getElementsByClassName("conversation")
+            for (let i = 0; i < conversationElements.length; i++){
+                conversationElements[i].classList.remove("active");
+            }
+            document.getElementById(convId).classList.add("active");
         }
     }
     xhr.send();

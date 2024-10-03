@@ -4,7 +4,7 @@
     $id = $_SESSION["id"];
     $first_name = $_SESSION["first_name"];
     $last_name = $_SESSION["last_name"];
-
+    $conv_id = $_GET["c"];
 
     $conversation = new Conversation();
     $row_count = $conversation->fetchConversations($first_name, $last_name, $id)->rowCount();
@@ -23,8 +23,14 @@
         if($sender_id == $id){
             $msg_preview = "You: ".$sent_message['text_content'];
         }
+
+        if ($conv_id == $conversations_id) {
+            echo "<a href='#' id='".$conversations_id."' class='conversation active' onclick='getConvID(this.id, $other_id)'>";
+        }
+        else{
+            echo "<a href='#' id='".$conversations_id."' class='conversation' onclick='getConvID(this.id, $other_id)'>";
+        }
         echo "
-        <a href='#' id='".$conversations_id."' class='conversation' onclick='getConvID(this.id, $other_id)'>
                 <h4 class='sm'>".$conversations_fname." ".$conversations_lname."</h4>
                 <p class='xs'>".$msg_preview."</p>
         </a>
