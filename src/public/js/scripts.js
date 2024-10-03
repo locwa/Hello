@@ -1,11 +1,15 @@
 // Intervals for retrievals
-setInterval(getConversations, 1000);
+setInterval(getLatest, 1000);
 
 // conversation ID
 let conversationID = 0;
 let otherID = 0;
 
 // Functions
+function getLatest(){
+    getConversations();
+    getLatestMessage(conversationID);
+}
 function getConversations(){
     let xhr = new XMLHttpRequest();
     xhr.open("GET", "../private/conversations_retrieval.php", true);
@@ -65,4 +69,18 @@ function sendMessage() {
     }
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send("m=" + message + "&oid=" + otherID + "&c=" + conversationID);
+}
+
+function getLatestMessage(convID) {
+    console.log(convID);
+    let url = "../private/get_latest_message.php";
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    xhr.onload = function(){
+        if (this.statusText = "200"){
+            document.getElementById("messageRoll").insertAdjacentHTML("afterbegin", this.responseText);
+        }
+    }
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.send("c=" + convID);
 }
