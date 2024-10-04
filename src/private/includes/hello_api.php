@@ -128,7 +128,7 @@
     class Messages{
         function getMessages (int $conversation_id){
             $query  =   "SELECT
-                            message_id, text_content, media_content, sender_id, timedate
+                            message_id, text_content, media_content, sender_id, receiver_id timedate
                         FROM 
                             messages
                         WHERE 
