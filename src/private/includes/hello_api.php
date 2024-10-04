@@ -115,6 +115,15 @@
             $res = $stmt->fetch();
             return $res;
         }
+        function codeGenerator (){
+            $numbers = "1234567890";
+            $otp = "";
+
+            for($i = 0; $i < 6; $i++){
+                $otp .= substr($numbers, rand(0, strlen($numbers) - 1), 1);
+            }
+            return $otp;
+        }
     }
     class Messages{
         function getMessages (int $conversation_id){
