@@ -187,16 +187,4 @@
             $res = $stmt->fetch();
             return $res;
         }
-        function setIsReceived ($message_id){
-            $query  =   "UPDATE
-                            messages
-                          SET
-                            is_received = 1;
-                          WHERE 
-                            message_id = ?
-                         ";
-            $dbconnect = new DBConnection();
-            $stmt = $dbconnect->prepare($query);
-            $stmt->execute([$message_id]);
-        }
     }
