@@ -13,7 +13,20 @@
 <body>
     <div class="new-conversation-popup">
         <div class="popup-container">
-            h
+            <div class="popup-content">
+                <h4>Please enter the conversation code </h4>
+                <fieldset>
+                    <input type="number" name="num-code-0" class="num-code" min="0" max="9" placeholder="0" maxlength="1">
+                    <input type="number" name="num-code-1" class="num-code" min="0" max="9" placeholder="0" maxlength="1">
+                    <input type="number" name="num-code-2" class="num-code" min="0" max="9" placeholder="0" maxlength="1">
+                    <input type="number" name="num-code-3" class="num-code" min="0" max="9" placeholder="0" maxlength="1">
+                    <input type="number" name="num-code-4" class="num-code" min="0" max="9" placeholder="0" maxlength="1">
+                    <input type="number" name="num-code-5" class="num-code" min="0" max="9" placeholder="0" maxlength="1">
+                </fieldset>
+                <br>
+                <p class="xs">Or generate your conversation code</p><br>
+                <button type="submit">Submit</button>
+            </div>
         </div>
     </div>
     <div class="inbox">

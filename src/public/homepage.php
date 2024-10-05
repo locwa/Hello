@@ -87,10 +87,10 @@
             <form action="homepage.php" method="post" class="login-form">
                 <input type="email" name="email" class="landing-input" placeholder="E-mail Address">
                 <input type="password" name="password" class="landing-input" placeholder="Password">
-                <button type="submit" name="login" class="login-btn">Log in</button>
+                <button type="submit" name="login" class="btn1">Log in</button>
                 <a href="" class="forgot-password-link">Forgot Password?</a>
                 <hr class="black-divider">
-                <button type="submit" name="signup" class="signup-btn">Sign up</button>
+                <button type="submit" name="signup" class="btn2">Sign up</button>
             </form>
         </div>
         
