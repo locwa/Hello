@@ -8,13 +8,35 @@ let otherID = 0;
 // Functionality for new conversation
 const newChatButton = document.getElementById("newChatButton");
 const closeNewConversationButton = document.getElementById("closeNewConversationButton");
+const numFields = document.getElementsByClassName("num-fields");
 newChatButton.addEventListener("click", function (){
     document.getElementById("newConvPopup").style.display = "flex";
+    numFields[0].focus();
 })
 closeNewConversationButton.addEventListener("click", function(){
     document.getElementById("newConvPopup").style.display = "none";
 })
 
+// Make the number fields go to the next one if there is an input, or go back if the backspace key is pressed
+for (let i = 0; i < numFields.length; i++){
+    numFields[i].addEventListener("keydown", function(){
+        if (event.key === "Backspace"){
+            event.preventDefault();
+            numFields[i].value = "";
+            if (i > 0){
+                numFields[i-1].focus();
+            }
+        }
+    })
+    numFields[i].addEventListener("input", function(){
+        if (i < 5){
+            numFields[i+1].focus();
+        }
+        else{
+            numFields[i].focus();
+        }
+    })
+}
 // Functions
 function getLatest(){
     getConversations(conversationID);
@@ -87,7 +109,6 @@ function sendMessage() {
 }
 
 function getLatestMessage(convID) {
-    console.log(convID);
     let url = "../private/get_latest_message.php";
     let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
