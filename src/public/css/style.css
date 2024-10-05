@@ -10,6 +10,9 @@ body{
 ::-webkit-scrollbar {
     width: 10px;
 }
+::-webkit-scrollbar-thumb{
+    background: #292929;
+}
 
 /* Font Sizes */
 .xs{
@@ -79,7 +82,7 @@ body{
     align-items: center;
     background-color: #eaeaea;
     border-radius: 20px;
-    border: 1.5px solid #9b9b9b;
+    border: 0.01rem solid #9b9b9b;
 }
 .black-divider{
     border: 1px solid #000000;
