@@ -34,6 +34,9 @@ body{
     width: 14rem;
     margin: 1rem 0;
 }
+.btn1:disabled{
+    background-color: #847a21;
+}
 
 /* Font Sizes */
 .xs{
@@ -423,6 +426,7 @@ body{
 }
 #closeNewConversationButton:hover{
     cursor: pointer;
+    stroke: #9b9b9b;
 }
 .popup-content{
     height: 80%;
