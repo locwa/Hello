@@ -168,7 +168,7 @@ body{
     justify-content: space-between;
     align-items: center;
 }
-.new-chat-button{
+#newChatButton{
     background-color: #474747;
     height: 2rem;
     width: 2rem;
@@ -177,6 +177,10 @@ body{
     justify-content: center;
     align-items: center;
     border-radius: 50px;
+}
+#newChatButton:hover{
+    cursor: pointer;
+    background-color: #3f3f3f;
 }
 .inbox-search{
     width: 18.5rem;
@@ -396,8 +400,8 @@ body{
 }
 
 /* Popup for new conversation */
-.new-conversation-popup{
-    display: flex;
+#newConvPopup{
+    display: none;
     align-items: center;
     justify-content: center;
     position: fixed;
@@ -415,6 +419,9 @@ body{
 .close-button-container{
     text-align: end;
     margin: 15px;
+}
+#closeNewConversationButton:hover{
+    cursor: pointer;
 }
 .popup-content{
     height: 80%;

@@ -9,9 +9,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php include_once("../private/includes/header.php");?>
-<script src="./js/scripts.js"></script>
 <body>
-    <div class="new-conversation-popup">
+    <div class="new-conversation-popup" id="newConvPopup">
         <div class="popup-container">
             <div class="close-button-container">
                 <svg
@@ -23,7 +22,9 @@
                         stroke="#ffffff"
                         stroke-width="2"
                         stroke-linecap="round"
-                        stroke-linejoin="round">
+                        stroke-linejoin="round"
+                        id="closeNewConversationButton"
+                >
                     <path
                             stroke="none"
                             d="M0 0h24v24H0z"
@@ -102,7 +103,7 @@
             <div class="msg-list-content">
                 <div class="inbox-header">
                     <h1 class="heading">Chats</h1>
-                    <div class="new-chat-button">
+                    <div id="newChatButton">
                         <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="24"
@@ -230,5 +231,6 @@
             </div>
         </div>
     </div>
+    <script src="./js/scripts.js"></script>
 </body>
 </html>

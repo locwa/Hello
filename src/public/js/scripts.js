@@ -5,6 +5,16 @@ setInterval(getLatest, 1000);
 let conversationID = 0;
 let otherID = 0;
 
+// Functionality for new conversation
+const newChatButton = document.getElementById("newChatButton");
+const closeNewConversationButton = document.getElementById("closeNewConversationButton");
+newChatButton.addEventListener("click", function (){
+    document.getElementById("newConvPopup").style.display = "flex";
+})
+closeNewConversationButton.addEventListener("click", function(){
+    document.getElementById("newConvPopup").style.display = "none";
+})
+
 // Functions
 function getLatest(){
     getConversations(conversationID);
