@@ -24,8 +24,8 @@
                     <input type="number" name="num-code-5" class="num-code" min="0" max="9" placeholder="0" maxlength="1">
                 </fieldset>
                 <br>
-                <p class="xs">Or generate your conversation code</p><br>
-                <button type="submit">Submit</button>
+                <p class="xs">Or generate your conversation code</p>
+                <button type="submit" class="btn1">Submit</button>
             </div>
         </div>
     </div>
