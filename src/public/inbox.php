@@ -41,16 +41,16 @@
             <div class="popup-content">
                 <h3>Please enter the conversation code</h3>
                 <fieldset>
-                    <input type="text" pattern="/d*" name="num-code-0" class="num-code" placeholder="0" maxlength="1" data-index="0">
-                    <input type="text" pattern="/d*" name="num-code-1" class="num-code" placeholder="0" maxlength="1" data-index="1">
-                    <input type="text" pattern="/d*" name="num-code-2" class="num-code" placeholder="0" maxlength="1" data-index="2">
-                    <input type="text" pattern="/d*" name="num-code-3" class="num-code" placeholder="0" maxlength="1" data-index="3">
-                    <input type="text" pattern="/d*" name="num-code-4" class="num-code" placeholder="0" maxlength="1" data-index="4">
-                    <input type="text" pattern="/d*" name="num-code-5" class="num-code" placeholder="0" maxlength="1" data-index="5">
+                    <input type="text" pattern="/d*" name="num-code-0" class="num-fields" placeholder="0" maxlength="1" data-index="0">
+                    <input type="text" pattern="/d*" name="num-code-1" class="num-fields" placeholder="0" maxlength="1" data-index="1">
+                    <input type="text" pattern="/d*" name="num-code-2" class="num-fields" placeholder="0" maxlength="1" data-index="2">
+                    <input type="text" pattern="/d*" name="num-code-3" class="num-fields" placeholder="0" maxlength="1" data-index="3">
+                    <input type="text" pattern="/d*" name="num-code-4" class="num-fields" placeholder="0" maxlength="1" data-index="4">
+                    <input type="text" pattern="/d*" name="num-code-5" class="num-fields" placeholder="0" maxlength="1" data-index="5">
                 </fieldset>
                 <br>
                 <p class="xs">Or generate your conversation code</p>
-                <button type="submit" disabled class="btn1">Submit</button>
+                <button type="submit" class="btn1">Submit</button>
             </div>
         </div>
     </div>
