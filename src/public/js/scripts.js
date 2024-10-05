@@ -17,15 +17,29 @@ closeNewConversationButton.addEventListener("click", function(){
     document.getElementById("newConvPopup").style.display = "none";
 })
 
-// Make the number fields go to the next one if there is an input, or go back if the backspace key is pressed
+// Number fields navigation
 for (let i = 0; i < numFields.length; i++){
     numFields[i].addEventListener("keydown", function(){
-        if (event.key === "Backspace"){
-            event.preventDefault();
-            numFields[i].value = "";
-            if (i > 0){
-                numFields[i-1].focus();
-            }
+        let key = event.key;
+
+        switch (key){
+            case "Backspace":
+                event.preventDefault();
+                numFields[i].value = "";
+                if (i > 0){
+                    numFields[i-1].focus();
+                }
+                break;
+            case "ArrowLeft":
+                if (i > 0){
+                    numFields[i-1].focus();
+                }
+                break;
+            case "ArrowRight":
+                if (i < 5){
+                    numFields[i+1].focus();
+                }
+                break;
         }
     })
     numFields[i].addEventListener("input", function(){
