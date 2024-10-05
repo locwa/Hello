@@ -13,8 +13,32 @@
 <body>
     <div class="new-conversation-popup">
         <div class="popup-container">
+            <div class="close-button-container">
+                <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#ffffff"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round">
+                    <path
+                            stroke="none"
+                            d="M0 0h24v24H0z"
+                            fill="none"
+                    />
+                    <path
+                            d="M18 6l-12 12"
+                    />
+                    <path
+                            d="M6 6l12 12"
+                    />
+                </svg>
+            </div>
             <div class="popup-content">
-                <h4>Please enter the conversation code </h4>
+                <h3>Please enter the conversation code</h3>
                 <fieldset>
                     <input type="number" name="num-code-0" class="num-code" min="0" max="9" placeholder="0" maxlength="1">
                     <input type="number" name="num-code-1" class="num-code" min="0" max="9" placeholder="0" maxlength="1">

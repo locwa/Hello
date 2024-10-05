@@ -412,8 +412,12 @@ body{
     width: 400px;
     border-radius: 10px;
 }
+.close-button-container{
+    text-align: end;
+    margin: 15px;
+}
 .popup-content{
-    height: 100%;
+    height: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
