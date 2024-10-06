@@ -63,6 +63,7 @@
             </div>
             <div class="popup-content">
                 <h4>One-time Code</h4>
-                <h1 class="xl">'.$otp.'</h1>
+                <h1 class="xl" id="code">'.$otp.'</h1><br>
+                <p class="xs">The code will regenerate in <span class="bold"><span id="time"></span> Seconds</span></p>
             </div>
     ';
