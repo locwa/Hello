@@ -124,6 +124,23 @@
             }
             return $otp;
         }
+        function generateNewConversationCode($id){
+            $otp = $this->codeGenerator();
+            $query =   "INSERT INTO
+                            otp_new_conversation(code, sender_id)
+                        VALUES 
+                            (?, ?)
+                       ";
+            $dbconnect = new DBConnection();
+            $stmt = $dbconnect->prepare($query);
+            $res = $stmt->execute([$otp, $id]);
+            if ($res){
+                return $otp;
+            }
+        }
+        function deleteNewConversationCode($otp, $id){
+
+        }
     }
     class Messages{
         function getMessages (int $conversation_id){

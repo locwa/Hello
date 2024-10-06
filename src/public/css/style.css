@@ -54,6 +54,10 @@ body{
     font-size: 1.2rem;
     margin: 0;
 }
+.xl{
+    font-size: 4rem;
+    margin: 0;
+}
 
 /* Loading Spinner */
 .conversation-loader-container{
@@ -420,18 +424,21 @@ body{
     width: 100vw;
     background-color: rgba(0, 0, 0, 0.79);
 }
-.popup-container{
+#popupContainer{
     margin: auto;
     height: 500px;
     background-color: #212121;
     width: 400px;
     border-radius: 10px;
 }
-.close-button-container{
-    text-align: end;
+.title-bar{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
     margin: 15px;
 }
-#closeNewConversationButton:hover{
+#closeNewConversationButton:hover,
+#backToNewConversation:hover{
     cursor: pointer;
     stroke: #9b9b9b;
 }
@@ -460,4 +467,7 @@ fieldset{
 .num-fields::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+#newConversationCode{
+    color: #e9e9e9;
 }

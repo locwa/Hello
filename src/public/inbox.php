@@ -11,8 +11,8 @@
 <?php include_once("../private/includes/header.php");?>
 <body>
     <div class="new-conversation-popup" id="newConvPopup">
-        <div class="popup-container">
-            <div class="close-button-container">
+        <div id="popupContainer">
+            <div class="title-bar">
                 <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -49,7 +49,7 @@
                     <input type="text" pattern="/d*" autocomplete="off" name="num-code-5" class="num-fields" placeholder="0" maxlength="1">
                 </fieldset>
                 <br>
-                <p class="xs">Or generate your conversation code</p>
+                <p id="newConversationCode" class="xs" onclick="getNewConversationCode()">Or generate your conversation code</p>
                 <button type="submit" class="btn1">Submit</button>
             </div>
         </div>

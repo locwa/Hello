@@ -9,6 +9,7 @@ let otherID = 0;
 const newChatButton = document.getElementById("newChatButton");
 const closeNewConversationButton = document.getElementById("closeNewConversationButton");
 const numFields = document.getElementsByClassName("num-fields");
+
 newChatButton.addEventListener("click", function (){
     document.getElementById("newConvPopup").style.display = "flex";
     numFields[0].focus();
@@ -21,12 +22,14 @@ closeNewConversationButton.addEventListener("click", function(){
 for (let i = 0; i < numFields.length; i++){
     numFields[i].addEventListener("keydown", function(){
         let key = event.key;
-
         switch (key){
             case "Backspace":
                 event.preventDefault();
                 numFields[i].value = "";
                 if (i > 0){
+                    if (i != 5){
+                        numFields[i-1].value = "";
+                    }
                     numFields[i-1].focus();
                 }
                 break;
@@ -51,6 +54,7 @@ for (let i = 0; i < numFields.length; i++){
         }
     })
 }
+
 // Functions
 function getLatest(){
     getConversations(conversationID);
@@ -133,4 +137,38 @@ function getLatestMessage(convID) {
     }
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send("c=" + convID);
+}
+
+function getNewConversationCode() {
+    let url = "../private/generate_conversation_code.php";
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    xhr.onload = function(){
+        if (this.statusText = "200"){
+            document.getElementById("popupContainer").innerHTML = "";
+            document.getElementById("popupContainer").innerHTML = this.responseText;
+            // Back to new conversation prompt
+            document.getElementById("backToNewConversation").addEventListener("click", function (){
+                let url = "../private/new_conversation_prompt.php";
+                let xhr = new XMLHttpRequest();
+                xhr.open("POST", url, true);
+                xhr.onload = function(){
+                    if (this.statusText = "200"){
+                        document.getElementById("popupContainer").innerHTML = "";
+                        document.getElementById("popupContainer").innerHTML = this.responseText;
+                        document.getElementById("closeNewConversationButton").addEventListener("click", function(){
+                            document.getElementById("newConvPopup").style.display = "none";
+                        });
+                    }
+                }
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhr.send();
+            });
+            document.getElementById("closeNewConversationButton").addEventListener("click", function(){
+                document.getElementById("newConvPopup").style.display = "none";
+            });
+        }
+    }
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.send();
 }
