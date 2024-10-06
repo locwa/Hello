@@ -147,6 +147,9 @@ function getNewConversationCode() {
         if (this.statusText = "200"){
             document.getElementById("popupContainer").innerHTML = "";
             document.getElementById("popupContainer").innerHTML = this.responseText;
+            // interval for new code
+            let code = document.getElementById("code").textContent;
+            otpTimer(code);
             // Back to new conversation prompt
             document.getElementById("backToNewConversation").addEventListener("click", function (){
                 let url = "../private/new_conversation_prompt.php";
@@ -170,5 +173,25 @@ function getNewConversationCode() {
         }
     }
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.send();
+}
+
+function otpTimer(code) {
+    let seconds = 30;
+    setInterval(function(){
+        document.getElementById("time").innerText = seconds;
+        seconds -= 1;
+        if (seconds < 0){
+            deleteConversationCode(code);
+            getNewConversationCode();
+            seconds = 30;
+        }
+    }, 1000)
+}
+
+function deleteConversationCode(code) {
+    let url = "../private/delete_conversation_code.php?code=" + code;
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", url, true);
     xhr.send();
 }
