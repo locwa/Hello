@@ -7,6 +7,9 @@ body{
 .black-text{
     color: #000000;
 }
+.bold{
+    font-weight: bolder;
+}
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -437,10 +440,16 @@ body{
     justify-content: space-between;
     margin: 15px;
 }
+#newConversationCode{
+    text-decoration: underline;
+}
 #closeNewConversationButton:hover,
-#backToNewConversation:hover{
+#backToNewConversation:hover,
+#newConversationCode:hover{
     cursor: pointer;
     stroke: #9b9b9b;
+    color: #9b9b9b;
+    text-decoration: underline;
 }
 .popup-content{
     height: 80%;
