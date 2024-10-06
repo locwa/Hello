@@ -116,11 +116,11 @@
             return $res;
         }
         function codeGenerator (){
-            $numbers = "1234567890";
+            $chars = "123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM!@#$%^&*?";
             $otp = "";
 
             for($i = 0; $i < 6; $i++){
-                $otp .= substr($numbers, rand(0, strlen($numbers) - 1), 1);
+                $otp .= substr($chars, rand(0, strlen($chars) - 1), 1);
             }
             return $otp;
         }
@@ -138,8 +138,15 @@
                 return $otp;
             }
         }
-        function deleteNewConversationCode($otp, $id){
-
+        function deleteNewConversationCode($otp){
+            $query =   "DELETE FROM
+                            otp_new_conversation
+                        WHERE
+                            code = ? 
+                       ";
+            $dbconnect = new DBConnection();
+            $stmt = $dbconnect->prepare($query);
+            $stmt->execute([$otp]);
         }
     }
     class Messages{
