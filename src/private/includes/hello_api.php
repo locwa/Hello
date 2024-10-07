@@ -116,7 +116,7 @@
             return $res;
         }
         function codeGenerator (){
-            $chars = "123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM!@#$%^&*?";
+            $chars = "123456789qwertyuiopasdfghjklzxcvbnm!@#$%^&*?";
             $otp = "";
 
             for($i = 0; $i < 6; $i++){

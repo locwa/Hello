@@ -49,7 +49,7 @@
                     <input type="text" autocomplete="off" id="numCode5" class="num-fields" placeholder="0" maxlength="1">
                 </fieldset>
                 <br>
-                <p id="newConversationCode" class="xs" onclick="getNewConversationCode()">Or generate your conversation code</p>
+                <a href="generate_conversation_code.php" target="_blank" id="newConversationCode" class="xs">Or generate your conversation code</a>
                 <button class="btn1" id="submitCode">Submit</button>
             </div>
         </div>
