@@ -10,5 +10,3 @@
     $user2 = $res['sender_id'];
 
     $conversations->addNewConversation($user1, $user2);
-
-    echo "<h1>".var_dump($user2)."</h1>";

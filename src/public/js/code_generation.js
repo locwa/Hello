@@ -21,3 +21,6 @@ function deleteConversationCode(code) {
 window.onbeforeunload = function(){
     deleteConversationCode(code);
 }
+if (document.hidden){
+    window.close();
+}
