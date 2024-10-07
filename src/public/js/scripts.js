@@ -124,6 +124,7 @@ function sendMessage() {
     xhr.onload = function(){
         if (this.statusText = "200"){
             document.getElementById("messageText").value = "";
+            document.getElementById("emptyMessage").innerHTML = "";
             document.getElementById("messageRoll").insertAdjacentHTML("afterbegin", this.responseText);
         }
     }
@@ -137,7 +138,11 @@ function getLatestMessage(convID) {
     xhr.open("POST", url, true);
     xhr.onload = function(){
         if (this.statusText = "200"){
+            let isEmpty = true;
             document.getElementById("messageRoll").insertAdjacentHTML("afterbegin", this.responseText);
+            if (!isEmpty){
+                document.getElementById("emptyMessage").innerHTML = "";
+            }
         }
     }
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -154,8 +159,7 @@ function addConversationFromCode() {
     xhr.open("GET", url, true);
     xhr.onload = function() {
         if (this.statusText = "200"){
-            document.getElementById("popupContainer").innerHTML = "";
-            document.getElementById("popupContainer").innerHTML = this.responseText;
+            document.getElementById("newConvPopup").style.display = "none";
         }
     }
     xhr.send();

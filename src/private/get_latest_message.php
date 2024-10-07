@@ -13,17 +13,20 @@
         $sender_id = $returned_values['sender_id'];
         $received_message_id = $returned_values['message_id'];
 
-        if (($sender_id != $id) && ($_SESSION["msg_id"] != $received_message_id)) {
+        if (($sender_id != $id) && ($_SESSION["msg_id"] != $received_message_id) && ($returned_values !== false)) {
             echo "
                   <div class='chat received'>
                       <div class='bubble-received'>
                           <p class='chat-text'>".$received_message."</p>
                       </div>
+                      <script>isEmpty = false</script>
                   </div>
                 ";
             $_SESSION["msg_id"] = $received_message_id;
         }
-
+        else{
+            echo "<script>isEmpty = true</script>";
+        }
     }
 
 

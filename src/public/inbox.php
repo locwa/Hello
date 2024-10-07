@@ -144,8 +144,8 @@
             <div id="messageHeader">
             </div>
             <div id="messageRoll">
-                <div class="empty-message">
-                    <p>Start a new message, or select a conversation on the chats window</p>
+                <div id="emptyMessage">
+                    <p>Wow, such empty.</p>
                 </div>
             </div>
             <div class="message-input">
