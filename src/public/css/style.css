@@ -10,6 +10,9 @@ body{
 .bold{
     font-weight: bolder;
 }
+.italic{
+    font-style: italic;
+}
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -274,7 +277,7 @@ body{
     flex-direction: column;
     justify-content: center;
 }
-.empty-message{
+#emptyMessage{
     height: 100%;
     display: flex;
     align-items: center;
