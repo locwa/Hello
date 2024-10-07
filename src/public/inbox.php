@@ -41,16 +41,16 @@
             <div class="popup-content">
                 <h3>Please enter the conversation code</h3>
                 <fieldset>
-                    <input type="text" autocomplete="off" name="num-code-0" class="num-fields" placeholder="0" maxlength="1">
-                    <input type="text" autocomplete="off" name="num-code-1" class="num-fields" placeholder="0" maxlength="1">
-                    <input type="text" autocomplete="off" name="num-code-2" class="num-fields" placeholder="0" maxlength="1">
-                    <input type="text" autocomplete="off" name="num-code-3" class="num-fields" placeholder="0" maxlength="1">
-                    <input type="text" autocomplete="off" name="num-code-4" class="num-fields" placeholder="0" maxlength="1">
-                    <input type="text" autocomplete="off" name="num-code-5" class="num-fields" placeholder="0" maxlength="1">
+                    <input type="text" autocomplete="off" id="numCode0" class="num-fields" placeholder="0" maxlength="1">
+                    <input type="text" autocomplete="off" id="numCode1" class="num-fields" placeholder="0" maxlength="1">
+                    <input type="text" autocomplete="off" id="numCode2" class="num-fields" placeholder="0" maxlength="1">
+                    <input type="text" autocomplete="off" id="numCode3" class="num-fields" placeholder="0" maxlength="1">
+                    <input type="text" autocomplete="off" id="numCode4" class="num-fields" placeholder="0" maxlength="1">
+                    <input type="text" autocomplete="off" id="numCode5" class="num-fields" placeholder="0" maxlength="1">
                 </fieldset>
                 <br>
                 <p id="newConversationCode" class="xs" onclick="getNewConversationCode()">Or generate your conversation code</p>
-                <button type="submit" class="btn1">Submit</button>
+                <button class="btn1" id="submitCode">Submit</button>
             </div>
         </div>
     </div>

@@ -148,6 +148,30 @@
             $stmt = $dbconnect->prepare($query);
             $stmt->execute([$otp]);
         }
+        function getSenderIDFromCode($code){
+            $query =   "SELECT
+                            sender_id
+                        FROM
+                            otp_new_conversation
+                        WHERE
+                            code = ?
+                       ";
+            $dbconnect = new DBConnection();
+            $stmt = $dbconnect->prepare($query);
+            $stmt->execute([$code]);
+            $res = $stmt->fetchAll();
+            return $res;
+        }
+        function addNewConversation($id1, $id2){
+            $query =   "INSERT INTO
+                            conversations(user1, user2)
+                        VALUES 
+                            (?, ?) 
+                       ";
+            $dbconnect = new DBConnection();
+            $stmt = $dbconnect->prepare($query);
+            $stmt->execute([$id1, $id2]);
+        }
     }
     class Messages{
         function getMessages (int $conversation_id){

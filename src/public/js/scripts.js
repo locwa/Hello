@@ -9,6 +9,7 @@ let otherID = 0;
 const newChatButton = document.getElementById("newChatButton");
 const closeNewConversationButton = document.getElementById("closeNewConversationButton");
 const numFields = document.getElementsByClassName("num-fields");
+const submitCode = document.getElementById("submitCode");
 
 newChatButton.addEventListener("click", function (){
     document.getElementById("newConvPopup").style.display = "flex";
@@ -17,6 +18,8 @@ newChatButton.addEventListener("click", function (){
 closeNewConversationButton.addEventListener("click", function(){
     document.getElementById("newConvPopup").style.display = "none";
 })
+
+submitCode.onclick = addConversationFromCode;
 
 // Number fields navigation
 for (let i = 0; i < numFields.length; i++){
@@ -47,9 +50,11 @@ for (let i = 0; i < numFields.length; i++){
     })
     numFields[i].addEventListener("input", function(){
         if (i < 5){
+            console.log(numFields[i].value);
             numFields[i+1].focus();
         }
         else{
+            console.log(numFields[i].value);
             numFields[i].focus();
         }
     })
@@ -193,5 +198,22 @@ function deleteConversationCode(code) {
     let url = "../private/delete_conversation_code.php?code=" + code;
     let xhr = new XMLHttpRequest();
     xhr.open("GET", url, true);
+    xhr.send();
+}
+
+function addConversationFromCode() {
+    let code = ""
+    for (let i = 0; i < numFields.length; i++){
+        code += numFields[i].value;
+    }
+    let url = "../private/add_new_conversation.php?code=" + code;
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", url, true);
+    xhr.onload = function() {
+        if (this.statusText = "200"){
+            document.getElementById("popupContainer").innerHTML = "";
+            document.getElementById("popupContainer").innerHTML = this.responseText;
+        }
+    }
     xhr.send();
 }
