@@ -41,7 +41,8 @@ body{
     width: 18rem;
 }
 .btn1:hover,
-.btn2:hover{
+.btn2:hover,
+.options:hover{
     cursor: pointer;
 }
 .btn1:hover{

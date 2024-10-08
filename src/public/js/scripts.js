@@ -21,6 +21,16 @@ closeNewConversationButton.addEventListener("click", function(){
 
 submitCode.onclick = addConversationFromCode;
 
+// Detect scroll in message roll
+let element = document.getElementById('messageRoll');
+document.getElementById("messageRoll").addEventListener("scroll", function() {
+    let elementHeight = element.offsetHeight - element.scrollHeight;
+    let currentPosition = element.scrollTop;
+    if (elementHeight === currentPosition){
+        console.log("reached top");
+    }
+});
+
 // Number fields navigation
 for (let i = 0; i < numFields.length; i++){
     numFields[i].addEventListener("keydown", function(){
