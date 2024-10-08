@@ -271,6 +271,16 @@ body{
     padding: 0.5rem 1.5rem;
     min-height: 3rem;
     max-height: 3rem;
+    justify-content: space-between;
+    align-items: center;
+}
+.options{
+    border-radius: 20px;
+    background-color: #474747;
+    padding: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .recipient-details{
     display: flex;
