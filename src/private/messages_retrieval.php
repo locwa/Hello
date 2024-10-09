@@ -36,6 +36,8 @@
                 ";
             }
         }
-        echo '<div id="loaderContainer"><div class="message-loader"></div></div>';
+        if ($row_count >= 15) {
+            echo '<div id="loaderContainer"><div class="message-loader"></div></div>';
+        }
     }
 
