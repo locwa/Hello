@@ -42,7 +42,7 @@
             }
             echo "
                 <h4 class='sm'>".$conversations_fname." ".$conversations_lname."</h4>
-                ".$msg_preview."
+                <p class='xs'>".$msg_preview."</p>
             ";
 
         }

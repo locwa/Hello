@@ -36,5 +36,6 @@
                 ";
             }
         }
+        echo '<div id="loaderContainer"><div class="message-loader"></div></div>';
     }
 

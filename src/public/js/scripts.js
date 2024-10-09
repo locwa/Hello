@@ -21,13 +21,34 @@ closeNewConversationButton.addEventListener("click", function(){
 
 submitCode.onclick = addConversationFromCode;
 
-// Detect scroll in message roll
+// Shows previous messages if maximum top scroll is reached
 let element = document.getElementById('messageRoll');
-document.getElementById("messageRoll").addEventListener("scroll", function() {
+let messageOffset = 15;
+let isScrollTopReached = false;
+
+document.getElementById("messageRoll").addEventListener("scroll", function () {
     let elementHeight = element.offsetHeight - element.scrollHeight;
-    let currentPosition = element.scrollTop;
-    if (elementHeight === currentPosition){
-        console.log("reached top");
+    let currentPosition = Math.floor(element.scrollTop) - 1;
+    isScrollTopReached = false;
+    console.log(elementHeight);
+    console.log(currentPosition);
+    if ((elementHeight >= currentPosition)){
+        console.log("hey");
+        isScrollTopReached = true;
+        let url = "../private/retrieve_previous_messages.php";
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", url, true);
+        xhr.onload = function(){
+            if (this.statusText = "200"){
+                document.getElementById("messageRoll").scrollTo(0, elementHeight);
+                messageOffset += 15;
+                isScrollTopReached = false;
+                document.getElementById("loaderContainer").remove();
+                document.getElementById("messageRoll").insertAdjacentHTML("beforeend", this.responseText);
+            }
+        }
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.send("messageOffset=" + messageOffset + "&conversationID=" + conversationID);
     }
 });
 

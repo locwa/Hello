@@ -134,7 +134,7 @@
                 </div>
                 <input type="text" name="inbox-search" placeholder="Search" class="inbox-search">
                 <div id="conversationList">
-                    <div class="conversation-loader-container">
+                    <div id="loaderContainer">
                         <div class="loader"></div>
                     </div>
                 </div>

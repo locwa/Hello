@@ -235,4 +235,19 @@
             $res = $stmt->fetch();
             return $res;
         }
+        function getPreviousMessages ($conversation_id, int $offset){
+            $query  =   "SELECT
+                            message_id, text_content, media_content, sender_id, receiver_id, timedate
+                        FROM 
+                            messages
+                        WHERE 
+                            conversation_id = ?
+                        ORDER BY timedate DESC
+                        LIMIT 15 OFFSET $offset";
+
+            $dbconnect = new DBConnection();
+            $stmt = $dbconnect->prepare($query);
+            $stmt->execute([$conversation_id]);
+            return $stmt;
+        }
     }
