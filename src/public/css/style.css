@@ -42,7 +42,8 @@ body{
 }
 .btn1:hover,
 .btn2:hover,
-.options:hover{
+.options:hover,
+#logoutButton:hover{
     cursor: pointer;
 }
 .btn1:hover{
@@ -175,6 +176,11 @@ body{
     background-color: #1b1a1a;
     border-radius: 20px;
     height: 93vh;
+}
+#logoutButton{
+    background-color: transparent;
+    border: none;
+    margin-bottom: 1rem;
 }
 .msg-list, .navbar{
     margin: 1rem;
