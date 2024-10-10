@@ -24,9 +24,7 @@
                 ";
             $_SESSION["msg_id"] = $received_message_id;
         }
-        else{
-            echo "<script>isEmpty = true</script>";
-        }
+
     }
 
 

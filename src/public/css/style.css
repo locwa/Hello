@@ -252,7 +252,8 @@ body{
 }
 #conversationList{
     margin-top: 1.2rem;
-    height: auto;
+    height: 80%;
+    overflow-y: scroll;
 }
 #conversationList > *{
     text-decoration: none;

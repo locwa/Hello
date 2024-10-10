@@ -22,13 +22,13 @@ closeNewConversationButton.addEventListener("click", function(){
 submitCode.onclick = addConversationFromCode;
 
 // Shows previous messages if maximum top scroll is reached
-let element = document.getElementById('messageRoll');
 let messageOffset = 15;
 let isScrollTopReached = false;
 
 document.getElementById("messageRoll").addEventListener("scroll", function () {
-    let elementHeight = element.offsetHeight - element.scrollHeight;
-    let currentPosition = Math.floor(element.scrollTop) - 1;
+    let messageRoll = document.getElementById('messageRoll');
+    let elementHeight = messageRoll.offsetHeight - messageRoll.scrollHeight;
+    let currentPosition = Math.floor(messageRoll.scrollTop) - 1;
     isScrollTopReached = false;
     console.log(elementHeight);
     console.log(currentPosition);
@@ -148,19 +148,19 @@ function getMessageRecipient(convId){
 
 function sendMessage() {
     event.preventDefault();
-    let message = document.getElementById("messageText").value;
+    let sentMessage = document.getElementById("messageText").value;
     let url = "../private/send_message.php";
     let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.onload = function(){
         if (this.statusText = "200"){
             document.getElementById("messageText").value = "";
-            document.getElementById("emptyMessage").innerHTML = "";
+            document.getElementById("messageRoll").innerHTML = "";
             document.getElementById("messageRoll").insertAdjacentHTML("afterbegin", this.responseText);
         }
     }
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.send("m=" + message + "&oid=" + otherID + "&c=" + conversationID);
+    xhr.send("m=" + sentMessage + "&oid=" + otherID + "&c=" + conversationID);
 }
 
 function getLatestMessage(convID) {
@@ -169,10 +169,9 @@ function getLatestMessage(convID) {
     xhr.open("POST", url, true);
     xhr.onload = function(){
         if (this.statusText = "200"){
-            let isEmpty = true;
-            document.getElementById("messageRoll").insertAdjacentHTML("afterbegin", this.responseText);
-            if (!isEmpty){
-                document.getElementById("emptyMessage").innerHTML = "";
+            if(this.responseText != ""){
+                document.getElementById("emptyMessage").remove();
+                document.getElementById("messageRoll").insertAdjacentHTML("afterbegin", this.responseText);
             }
         }
     }
