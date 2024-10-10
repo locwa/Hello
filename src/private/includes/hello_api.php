@@ -174,7 +174,7 @@
         }
     }
     class Messages{
-        function getMessages (int $conversation_id){
+        function getMessages ($conversation_id, $message_limit){
             $query  =   "SELECT
                             message_id, text_content, media_content, sender_id, receiver_id, timedate
                         FROM 
@@ -182,7 +182,7 @@
                         WHERE 
                             conversation_id = ?
                         ORDER BY timedate DESC
-                        LIMIT 15";
+                        LIMIT $message_limit";
             
             $dbconnect = new DBConnection();
             $stmt = $dbconnect->prepare($query);

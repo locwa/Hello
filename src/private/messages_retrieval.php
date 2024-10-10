@@ -1,11 +1,12 @@
 <?php
     include_once("../private/includes/hello_api.php");
     session_start();
-    $conv_id = $_GET['c'];
+    $conv_id = $_POST['c'];
+    $msg_limit = $_POST['limit'];
 
     $messages = new Messages();
-    $row_count = $messages->getMessages($conv_id)->rowCount();
-    $message_roll = $messages->getMessages($conv_id)->fetchAll();
+    $row_count = $messages->getMessages($conv_id, $msg_limit)->rowCount();
+    $message_roll = $messages->getMessages($conv_id, $msg_limit)->fetchAll();
     if ($row_count === 0) {
         echo "<div id='emptyMessage'>
                     <p>Wow, such empty.</p>

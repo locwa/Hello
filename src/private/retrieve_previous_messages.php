@@ -35,5 +35,5 @@
         echo '<div id="loaderContainer"><div class="message-loader"></div></div>';
     }
     else{
-        echo "<br>";
+        echo '<div id="loaderContainer"></div>';
     }

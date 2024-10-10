@@ -21,34 +21,32 @@ closeNewConversationButton.addEventListener("click", function(){
 
 submitCode.onclick = addConversationFromCode;
 
+// Sets message limit based on window height
+let messageLimit = Math.ceil(window.innerHeight / 30);
+
 // Shows previous messages if maximum top scroll is reached
-let messageOffset = 15;
-let isScrollTopReached = false;
+let messageOffset = messageLimit;
 
 document.getElementById("messageRoll").addEventListener("scroll", function () {
     let messageRoll = document.getElementById('messageRoll');
     let elementHeight = messageRoll.offsetHeight - messageRoll.scrollHeight;
     let currentPosition = Math.floor(messageRoll.scrollTop) - 1;
-    isScrollTopReached = false;
-    console.log(elementHeight);
-    console.log(currentPosition);
     if ((elementHeight >= currentPosition)){
-        console.log("hey");
-        isScrollTopReached = true;
         let url = "../private/retrieve_previous_messages.php";
         let xhr = new XMLHttpRequest();
         xhr.open("POST", url, true);
         xhr.onload = function(){
             if (this.statusText = "200"){
                 document.getElementById("messageRoll").scrollTo(0, elementHeight);
-                messageOffset += 15;
-                isScrollTopReached = false;
-                document.getElementById("loaderContainer").remove();
+                messageOffset += messageLimit;
+                if (this.responseText !== ""){
+                    document.getElementById("loaderContainer").remove();
+                }
                 document.getElementById("messageRoll").insertAdjacentHTML("beforeend", this.responseText);
             }
         }
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhr.send("messageOffset=" + messageOffset + "&conversationID=" + conversationID);
+        xhr.send("messageOffset=" + messageOffset + "&conversationID=" + conversationID + "&messageLimit=" + messageLimit);
     }
 });
 
@@ -116,9 +114,9 @@ function getConvID(cid, oid){
 }
 
 function getMessage(convId){
-    let url = "../private/messages_retrieval.php?c=" + convId;
+    let url = "../private/messages_retrieval.php";
     let xhr = new XMLHttpRequest();
-    xhr.open("GET", url, true);
+    xhr.open("POST", url, true);
     xhr.onload = function(){
         if (this.statusText = "200"){
             document.getElementById("messageRoll").innerHTML = "";
@@ -130,7 +128,8 @@ function getMessage(convId){
             document.getElementById(convId).classList.add("active");
         }
     }
-    xhr.send();
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.send("c=" + convId + "&limit=" + messageLimit);
 }
 
 function getMessageRecipient(convId){
