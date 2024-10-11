@@ -4,11 +4,12 @@
     $id = $_SESSION["id"];
     $first_name = $_SESSION["first_name"];
     $last_name = $_SESSION["last_name"];
-    $conv_id = $_GET["c"];
+    $conv_id = $_POST["c"];
+    $limit = $_POST["limit"];
 
     $conversation = new Conversation();
-    $row_count = $conversation->fetchConversations($first_name, $last_name, $id)->rowCount();
-    $conversation_list = $conversation->fetchConversations($first_name, $last_name, $id)->fetchAll();
+    $row_count = $conversation->fetchConversations($first_name, $last_name, $id, $limit)->rowCount();
+    $conversation_list = $conversation->fetchConversations($first_name, $last_name, $id, $limit)->fetchAll();
 
     if ($row_count === 0) {
         echo "<p>There are no conversations yet.</p>";
@@ -44,6 +45,5 @@
                 <h4 class='sm'>".$conversations_fname." ".$conversations_lname."</h4>
                 <p class='xs'>".$msg_preview."</p>
             ";
-
         }
     }

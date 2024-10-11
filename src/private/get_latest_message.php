@@ -19,7 +19,6 @@
                       <div class='bubble-received'>
                           <p class='chat-text'>".$received_message."</p>
                       </div>
-                      <script>isEmpty = false</script>
                   </div>
                 ";
             $_SESSION["msg_id"] = $received_message_id;

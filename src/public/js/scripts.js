@@ -48,6 +48,20 @@ document.getElementById("messageRoll").addEventListener("scroll", function () {
     }
 });
 
+// Pagination for conversations
+let conversationLimit = Math.ceil(window.innerHeight / 70);
+document.getElementById("conversationList").addEventListener("scroll", function () {
+    let conversationList = document.getElementById('conversationList');
+    const loader = '<div class="fetch-previous-conversation-loader"></div>';
+    let convElementHeight = conversationList.offsetHeight - conversationList.scrollHeight;
+    let convCurrentPosition = (Math.floor(conversationList.scrollTop) * -1) - 1;
+    console.log(convCurrentPosition);
+    console.log(convElementHeight);
+    if (convElementHeight >= convCurrentPosition){
+        conversationLimit += conversationLimit;
+    }
+});
+
 // Shows
 
 // Number fields navigation
@@ -94,16 +108,20 @@ function getLatest(){
     getConversations(conversationID);
     getLatestMessage(conversationID);
 }
-function getConversations(convID){
+function getConversations(convId){
     let xhr = new XMLHttpRequest();
-    xhr.open("GET", "../private/conversations_retrieval.php?c=" + convID, true);
+    let url = "../private/conversations_retrieval.php"
+    xhr.open("POST", url, true);
     xhr.onload = function(){
         if (this.statusText = "200"){
-            document.getElementById("conversationList").innerHTML = "";
-            document.getElementById("conversationList").innerHTML = this.responseText;
+            if (this.responseText != ""){
+                document.getElementById("conversationList").innerHTML = "";
+                document.getElementById("conversationList").innerHTML = this.responseText;
+            }
         }
     }
-    xhr.send();
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.send("c=" + convId + "&limit=" + conversationLimit);
 }
 
 function getConvID(cid, oid){

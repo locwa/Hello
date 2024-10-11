@@ -74,7 +74,7 @@
         }
     }
     class Conversation{
-        function fetchConversations ($first_name, $last_name, $id){
+        function fetchConversations ($first_name, $last_name, $id, int $limit){
             $query =   "SELECT DISTINCT
                             c.conversation_id, a.id, a.first_name, a.last_name, c.last_interacted
                         FROM
@@ -92,6 +92,7 @@
                                 OR (c.user2 = ?)
                             )
                         ORDER BY c.last_interacted DESC
+                        LIMIT $limit
                         ";
 
             // Executes the query for getting all conversations
