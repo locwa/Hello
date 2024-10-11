@@ -52,7 +52,6 @@ document.getElementById("messageRoll").addEventListener("scroll", function () {
 let conversationLimit = Math.ceil(window.innerHeight / 70);
 document.getElementById("conversationList").addEventListener("scroll", function () {
     let conversationList = document.getElementById('conversationList');
-    const loader = '<div class="fetch-previous-conversation-loader"></div>';
     let convElementHeight = conversationList.offsetHeight - conversationList.scrollHeight;
     let convCurrentPosition = (Math.floor(conversationList.scrollTop) * -1) - 1;
     console.log(convCurrentPosition);
@@ -171,6 +170,9 @@ function sendMessage() {
     xhr.open("POST", url, true);
     xhr.onload = function(){
         if (this.statusText = "200"){
+            if (document.getElementById("emptyMessage") != null){
+                document.getElementById("emptyMessage").remove();
+            }
             document.getElementById("messageText").value = "";
             document.getElementById("messageRoll").insertAdjacentHTML("afterbegin", this.responseText);
         }
@@ -186,7 +188,9 @@ function getLatestMessage(convID) {
     xhr.onload = function(){
         if (this.statusText = "200"){
             if(this.responseText != ""){
-                document.getElementById("emptyMessage").remove();
+                if (document.getElementById("emptyMessage") != null){
+                    document.getElementById("emptyMessage").remove();
+                }
                 document.getElementById("messageRoll").insertAdjacentHTML("afterbegin", this.responseText);
             }
         }
