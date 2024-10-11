@@ -21,10 +21,8 @@ closeNewConversationButton.addEventListener("click", function(){
 
 submitCode.onclick = addConversationFromCode;
 
-// Sets message limit based on window height
-let messageLimit = Math.ceil(window.innerHeight / 30);
-
 // Shows previous messages if maximum top scroll is reached
+let messageLimit = Math.ceil(window.innerHeight / 30);
 let messageOffset = messageLimit;
 
 document.getElementById("messageRoll").addEventListener("scroll", function () {
@@ -49,6 +47,8 @@ document.getElementById("messageRoll").addEventListener("scroll", function () {
         xhr.send("messageOffset=" + messageOffset + "&conversationID=" + conversationID + "&messageLimit=" + messageLimit);
     }
 });
+
+// Shows
 
 // Number fields navigation
 for (let i = 0; i < numFields.length; i++){
@@ -154,7 +154,6 @@ function sendMessage() {
     xhr.onload = function(){
         if (this.statusText = "200"){
             document.getElementById("messageText").value = "";
-            document.getElementById("messageRoll").innerHTML = "";
             document.getElementById("messageRoll").insertAdjacentHTML("afterbegin", this.responseText);
         }
     }

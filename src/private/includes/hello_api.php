@@ -76,7 +76,7 @@
     class Conversation{
         function fetchConversations ($first_name, $last_name, $id){
             $query =   "SELECT DISTINCT
-                            c.conversation_id, a.id, a.first_name, a.last_name
+                            c.conversation_id, a.id, a.first_name, a.last_name, c.last_interacted
                         FROM
                             accounts a
                         INNER JOIN
@@ -91,6 +91,7 @@
                                 (c.user1 = ?) 
                                 OR (c.user2 = ?)
                             )
+                        ORDER BY c.last_interacted DESC
                         ";
 
             // Executes the query for getting all conversations
@@ -217,7 +218,11 @@
                         ";
             $dbconnect = new DBConnection();
             $stmt = $dbconnect->prepare($query);
-            $stmt->execute([$sender_id, $receiver_id, $text_content, $conversation_id]);
+            $isExecuted = $stmt->execute([$sender_id, $receiver_id, $text_content, $conversation_id]);
+            if ($isExecuted){
+                $stmt2 = $dbconnect->prepare("UPDATE conversations SET last_interacted = UTC_TIMESTAMP() WHERE conversation_id = $conversation_id");
+                $stmt2->execute();
+            }
             return $stmt;
         }
         function getLatestMessagesReceived($conversation_id){
