@@ -121,7 +121,9 @@ chatButton.addEventListener("click", function () {
     document.getElementById("messageRoll").innerHTML = emptyMessage;
     isToggled = false;
     conversationToggle = 0;
+    conversationID = 0;
     getConversations(conversationID, conversationToggle);
+    removeConversationHighlights();
 })
 
 archiveButton.addEventListener("click", function () {
@@ -133,8 +135,11 @@ archiveButton.addEventListener("click", function () {
     if (document.getElementById("messageInput") != null) {
         document.getElementById("messageInput").remove();
     }
+    isToggled = true;
     conversationToggle = 1;
+    conversationID = 0;
     getConversations(conversationID, conversationToggle);
+    removeConversationHighlights();
 })
 
 // Functions
@@ -174,10 +179,7 @@ function getMessage(convId) {
         if (this.statusText = "200") {
             document.getElementById("messageRoll").innerHTML = "";
             document.getElementById("messageRoll").innerHTML = this.responseText;
-            let conversationElements = document.getElementsByClassName("conversation")
-            for (let i = 0; i < conversationElements.length; i++) {
-                conversationElements[i].classList.remove("active");
-            }
+            removeConversationHighlights();
             document.getElementById(convId).classList.add("active");
             showMessageInput(isToggled);
             isToggled = true;
@@ -288,4 +290,11 @@ function showMessageInput(isToggled) {
         }
     }
     xhr.send();
+}
+
+function removeConversationHighlights() {
+    let conversationElements = document.getElementsByClassName("conversation")
+    for (let i = 0; i < conversationElements.length; i++) {
+        conversationElements[i].classList.remove("active");
+    }
 }
