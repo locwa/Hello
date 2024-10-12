@@ -159,7 +159,7 @@
                         </svg>
                     </div>
                 </div>
-                <input type="text" name="inbox-search" placeholder="Search" class="inbox-search">
+                <input type="text" name="inbox-search" placeholder="Search" class="inbox-search" id="inboxSearch">
                 <div id="conversationList">
                     <div id="loaderContainer">
                         <div class="loader"></div>

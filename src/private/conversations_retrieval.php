@@ -6,10 +6,11 @@
     $last_name = $_SESSION["last_name"];
     $conv_id = $_POST["c"];
     $limit = $_POST["limit"];
+    $search_value = $_POST["searchValue"];
 
     $conversation = new Conversation();
-    $row_count = $conversation->fetchConversations($first_name, $last_name, $id, $limit, 0)->rowCount();
-    $conversation_list = $conversation->fetchConversations($first_name, $last_name, $id, $limit, 0)->fetchAll();
+    $row_count = $conversation->fetchConversations($first_name, $last_name, $id, $limit, 0, $search_value)->rowCount();
+    $conversation_list = $conversation->fetchConversations($first_name, $last_name, $id, $limit, 0, $search_value)->fetchAll();
 
     if ($row_count === 0) {
         echo "<p>There are no conversations yet.</p>";

@@ -100,6 +100,13 @@ for (let i = 0; i < numFields.length; i++){
     })
 }
 
+// Gets search conversations
+let search = "";
+document.getElementById("inboxSearch").addEventListener("keyup", function (){
+    search = document.getElementById("inboxSearch").value;
+    getConversations();
+})
+
 // Functions
 function getLatest(){
     getConversations(conversationID);
@@ -118,7 +125,7 @@ function getConversations(convId){
         }
     }
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.send("c=" + convId + "&limit=" + conversationLimit);
+    xhr.send("c=" + convId + "&limit=" + conversationLimit + "&searchValue=" + search);
 }
 
 function getConvID(cid, oid){

@@ -74,7 +74,7 @@
         }
     }
     class Conversation{
-        function fetchConversations ($first_name, $last_name, $id, int $limit, int $status){
+        function fetchConversations ($first_name, $last_name, $id, int $limit, int $status, $search_val){
             $query =   "SELECT DISTINCT
                             c.conversation_id, a.id, a.first_name, a.last_name, c.last_interacted
                         FROM
@@ -92,6 +92,7 @@
                                 OR (c.user2 = ?)
                             )
                             AND status = ?
+                            AND CONCAT(a.first_name, ' ', a.last_name) LIKE CONCAT(?, '%')
                         ORDER BY c.last_interacted DESC
                         LIMIT $limit
                         ";
@@ -99,7 +100,7 @@
             // Executes the query for getting all conversations
             $dbconnect = new DBConnection();
             $stmt = $dbconnect->prepare($query);
-            $stmt->execute([$first_name, $last_name, $id, $id, $status]);
+            $stmt->execute([$first_name, $last_name, $id, $id, $status, $search_val]);
             return $stmt;    
         }
         function messagePreview (int $conversation_id){
