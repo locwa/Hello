@@ -8,8 +8,8 @@
     $limit = $_POST["limit"];
 
     $conversation = new Conversation();
-    $row_count = $conversation->fetchConversations($first_name, $last_name, $id, $limit)->rowCount();
-    $conversation_list = $conversation->fetchConversations($first_name, $last_name, $id, $limit)->fetchAll();
+    $row_count = $conversation->fetchConversations($first_name, $last_name, $id, $limit, 0)->rowCount();
+    $conversation_list = $conversation->fetchConversations($first_name, $last_name, $id, $limit, 0)->fetchAll();
 
     if ($row_count === 0) {
         echo "<p>There are no conversations yet.</p>";

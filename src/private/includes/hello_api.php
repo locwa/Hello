@@ -74,7 +74,7 @@
         }
     }
     class Conversation{
-        function fetchConversations ($first_name, $last_name, $id, int $limit){
+        function fetchConversations ($first_name, $last_name, $id, int $limit, int $status){
             $query =   "SELECT DISTINCT
                             c.conversation_id, a.id, a.first_name, a.last_name, c.last_interacted
                         FROM
@@ -91,6 +91,7 @@
                                 (c.user1 = ?) 
                                 OR (c.user2 = ?)
                             )
+                            AND status = ?
                         ORDER BY c.last_interacted DESC
                         LIMIT $limit
                         ";
@@ -98,7 +99,7 @@
             // Executes the query for getting all conversations
             $dbconnect = new DBConnection();
             $stmt = $dbconnect->prepare($query);
-            $stmt->execute([$first_name, $last_name, $id, $id]);
+            $stmt->execute([$first_name, $last_name, $id, $id, $status]);
             return $stmt;    
         }
         function messagePreview (int $conversation_id){
@@ -166,13 +167,26 @@
         }
         function addNewConversation($id1, $id2){
             $query =   "INSERT INTO
-                            conversations(user1, user2)
+                            conversations(user1, user2, last_interacted)
                         VALUES 
-                            (?, ?) 
+                            (?, ?, UTC_TIMESTAMP()) 
                        ";
             $dbconnect = new DBConnection();
             $stmt = $dbconnect->prepare($query);
             $stmt->execute([$id1, $id2]);
+        }
+        function archiveMessage($conversation_id){
+            $query =   "UPDATE
+                            conversations
+                        SET
+                            status = 1
+                        WHERE
+                            conversation_id = ?
+                       ";
+            $dbconnect = new DBConnection();
+            $stmt = $dbconnect->prepare($query);
+            $res = $stmt->execute([$conversation_id]);
+            return $res;
         }
     }
     class Messages{

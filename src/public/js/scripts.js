@@ -61,8 +61,6 @@ document.getElementById("conversationList").addEventListener("scroll", function 
     }
 });
 
-// Shows
-
 // Number fields navigation
 for (let i = 0; i < numFields.length; i++){
     numFields[i].addEventListener("keydown", function(){
@@ -157,6 +155,9 @@ function getMessageRecipient(convId){
         if (this.statusText = "200"){
             document.getElementById("messageHeader").innerHTML = "";
             document.getElementById("messageHeader").innerHTML = this.responseText;
+            document.getElementById("archiveConversationButton").addEventListener("click", function() {
+                showArchivePopup();
+            })
         }
     }
     xhr.send();
@@ -210,6 +211,26 @@ function addConversationFromCode() {
     xhr.onload = function() {
         if (this.statusText = "200"){
             document.getElementById("newConvPopup").style.display = "none";
+        }
+    }
+    xhr.send();
+}
+
+function showArchivePopup(){
+    const archivePopup = document.getElementById("archivePopup");
+    let url = "../private/archive_message_popup.php?c=" + conversationID;
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", url, true);
+    xhr.onload = function() {
+        if (this.statusText = "200"){
+            document.getElementsByTagName("body")[0].insertAdjacentHTML("afterbegin", this.responseText);
+            // Closes archive popup container
+            document.getElementById("closeArchivePopupButton").addEventListener("click", function(){
+                archivePopup.remove();
+            })
+            document.getElementById("archiveCancel").addEventListener("click", function (){
+                archivePopup.remove();
+            })
         }
     }
     xhr.send();

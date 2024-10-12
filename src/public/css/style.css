@@ -7,6 +7,9 @@ body{
 .black-text{
     color: #000000;
 }
+.important{
+    color: #ff0000 !important;
+}
 .bold{
     font-weight: bolder;
 }
@@ -39,6 +42,16 @@ body{
     background-color: #000000;
     color: #e3cc16;
     width: 18rem;
+}
+.archive-btn{
+    width: 9rem;
+    margin: auto;
+}
+.archive-btn-container{
+    margin-top: 30px;
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
 }
 .btn1:hover,
 .btn2:hover,
@@ -304,7 +317,7 @@ body{
 .options{
     border-radius: 20px;
     background-color: #474747;
-    padding: 0.2rem;
+    padding: 0.4rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -379,7 +392,7 @@ body{
     justify-content: center;
 }
 .upload-button, .message-text{
-    margin-right: 0.8rem;
+    margin-right: 1vw;
 }
 .upload-button{
     color: #e7e6e6;
@@ -457,8 +470,9 @@ body{
     margin: 1rem auto;
 }
 
-/* Popup for new conversation */
-#newConvPopup{
+/* Popup for new conversation and archive conversatioin */
+#newConvPopup,
+#archivePopup{
     display: none;
     align-items: center;
     justify-content: center;
@@ -467,9 +481,19 @@ body{
     width: 100vw;
     background-color: rgba(0, 0, 0, 0.79);
 }
+#archivePopup{
+    display: flex;
+}
 #popupContainer{
     margin: auto;
     height: 500px;
+    background-color: #212121;
+    width: 400px;
+    border-radius: 10px;
+}
+#archivePopupContainer{
+    margin: auto;
+    height: 300px;
     background-color: #212121;
     width: 400px;
     border-radius: 10px;
@@ -485,7 +509,8 @@ body{
 }
 #closeNewConversationButton:hover,
 #backToNewConversation:hover,
-#newConversationCode:hover{
+#newConversationCode:hover,
+#closeArchivePopupButton    {
     cursor: pointer;
     stroke: #9b9b9b;
     color: #9b9b9b;
