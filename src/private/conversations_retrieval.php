@@ -7,10 +7,11 @@
     $conv_id = $_POST["c"];
     $limit = $_POST["limit"];
     $search_value = $_POST["searchValue"];
+    $toggle = (int)$_POST["toggle"];
 
     $conversation = new Conversation();
-    $row_count = $conversation->fetchConversations($first_name, $last_name, $id, $limit, 0, $search_value)->rowCount();
-    $conversation_list = $conversation->fetchConversations($first_name, $last_name, $id, $limit, 0, $search_value)->fetchAll();
+    $row_count = $conversation->fetchConversations($first_name, $last_name, $id, $limit, $toggle, $search_value)->rowCount();
+    $conversation_list = $conversation->fetchConversations($first_name, $last_name, $id, $limit, $toggle, $search_value)->fetchAll();
 
     if ($row_count === 0) {
         echo "<p>There are no conversations yet.</p>";
@@ -25,6 +26,7 @@
             $sent_message = $conversation->messagePreview($conversations_id);
             $msg_preview = "";
             $sender_id = "";
+            // Shows preview message
             if ($sent_message == false){
                 $msg_preview = "<p class='xs italic'>There are no messages yet.</p>";
             }
@@ -32,10 +34,13 @@
                 $msg_preview = "<p class='xs'>".$sent_message['text_content']."</p>";
                 $sender_id = $sent_message['sender_id'];
             }
+
+            // Checks if latest message is sent by the user
             if($sender_id == $id){
                 $msg_preview = "You: ".$sent_message['text_content'];
             }
 
+            // Checks if conversation is selected
             if ($conv_id == $conversations_id) {
                 echo "<a href='#' id='".$conversations_id."' class='conversation active' onclick='getConvID(this.id, $other_id)'>";
             }
