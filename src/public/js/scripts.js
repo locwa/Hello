@@ -1,3 +1,6 @@
+// TODO: make page responsive
+// TODO: add security
+
 // Intervals for retrievals
 setInterval(getLatest, 1000);
 

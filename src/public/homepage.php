@@ -29,7 +29,7 @@
 ?>
 <body>
     <nav>
-        <div class="nav-logo">
+        <a href="homepage.php" class="nav-logo">
             <svg
                 width="150"
                 height="70"
@@ -76,7 +76,7 @@
                         style="font-weight:900;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Heavy';text-align:center;text-anchor:middle"
                         id="tspan4">hello</tspan></tspan></text></g>
             </svg>
-        </div>
+        </a>
     </nav>
     <div class="hero">
         <div class="hero-text">
@@ -93,7 +93,9 @@
                 <button type="submit" name="signup" class="btn2">Sign up</button>
             </form>
         </div>
-        
     </div>
+    <footer>
+
+    </footer>
 </body>
 </html>
