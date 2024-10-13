@@ -123,6 +123,19 @@ body{
     width: 5%;
     margin: 2%;
 }
+#conversationLoaderContainer{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#conversationLoaderWrapper{
+    height: 30px;
+}
+#conversationLoader{
+    height: 20px;
+    width: auto;
+}
 
 /* Homepage */
 

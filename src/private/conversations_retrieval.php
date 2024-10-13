@@ -52,4 +52,11 @@
                 <p class='xs'>".$msg_preview."</p>
             ";
         }
+        if ($row_count >= $limit) {
+            echo '<div id="conversationLoaderWrapper">
+                <div id="conversationLoaderContainer">
+                    <div class="loader" id="conversationLoader"></div>
+                </div>
+            </div>';
+        }
     }
