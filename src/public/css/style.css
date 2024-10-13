@@ -400,7 +400,7 @@ body{
 }
 .message-draft{
     display: flex;
-    width: 90%;
+    width: 100%;
 }
 #messageText{
     width: 100%;

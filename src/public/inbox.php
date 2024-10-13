@@ -175,7 +175,6 @@
                     <p>Wow, such empty.</p>
                 </div>
             </div>
-
         </div>
     </div>
     <script src="./js/scripts.js"></script>
