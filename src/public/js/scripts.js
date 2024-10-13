@@ -146,6 +146,7 @@ archiveButton.addEventListener("click", function () {
 function getLatest() {
     getConversations(conversationID, conversationToggle);
     getLatestMessage(conversationID);
+    getActiveStatusFromOtherAccount();
 }
 
 function getConversations(convId, toggle) {
@@ -189,17 +190,19 @@ function getMessage(convId) {
     xhr.send("c=" + convId + "&limit=" + messageLimit);
 }
 
-function getMessageRecipient(convId) {
-    let url = "../private/recipient_retrieval.php?c=" + convId;
+function getMessageRecipient(convID) {
+    let url = "../private/recipient_retrieval.php?c=" + convID;
     let xhr = new XMLHttpRequest();
     xhr.open("GET", url, true);
     xhr.onload = function () {
         if (this.statusText = "200") {
             document.getElementById("messageHeader").innerHTML = "";
             document.getElementById("messageHeader").innerHTML = this.responseText;
-            document.getElementById("archiveConversationButton").addEventListener("click", function () {
-                showArchivePopup();
-            })
+            if (document.getElementById("archiveConversationButton") != null){
+                document.getElementById("archiveConversationButton").addEventListener("click", function () {
+                    showArchivePopup();
+                })
+            }
         }
     }
     xhr.send();
@@ -259,7 +262,6 @@ function addConversationFromCode() {
 }
 
 function showArchivePopup() {
-    const archivePopup = document.getElementById("archivePopup");
     let url = "../private/archive_message_popup.php?c=" + conversationID;
     let xhr = new XMLHttpRequest();
     xhr.open("GET", url, true);
@@ -297,4 +299,8 @@ function removeConversationHighlights() {
     for (let i = 0; i < conversationElements.length; i++) {
         conversationElements[i].classList.remove("active");
     }
+}
+
+function getActiveStatusFromOtherAccount() {
+    setInterval(getMessageRecipient(conversationID), 1000);
 }

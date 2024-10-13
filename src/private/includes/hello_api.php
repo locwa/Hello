@@ -64,6 +64,10 @@
                 $_SESSION["id"] = $user_cred["id"];
                 $_SESSION["first_name"] = $user_cred["first_name"];
                 $_SESSION["last_name"] = $user_cred["last_name"];
+                $_SESSION["email"] = $user_cred["email"];
+                $dbconnect = new DBConnection();
+                $res =$dbconnect->prepare("UPDATE accounts SET is_online = 1 WHERE id = " . $user_cred["id"]);
+                $res->execute();
                 header("Location: ../public/inbox.php");
                 exit();
             }
@@ -71,6 +75,18 @@
                 header("Location: ../public/homepage.php");
                 exit();
             }
+        }
+        function logout(int $id){
+            $query =    "
+                        UPDATE 
+                            accounts 
+                        SET 
+                            is_online = 0
+                        WHERE id = ?
+                        ";
+            $dbconnect = new DBConnection();
+            $stmt = $dbconnect->prepare($query);
+            return $stmt->execute([$id]);
         }
     }
     class Conversation{
@@ -209,7 +225,7 @@
         }
         function getRecepientName (int $conversation_id, int $user_id){
             $query  =   "SELECT DISTINCT
-                            a.first_name, a.last_name
+                            a.first_name, a.last_name, a.is_online, c.status
                         FROM
                             accounts a
                         INNER JOIN
