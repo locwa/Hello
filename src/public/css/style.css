@@ -1,4 +1,8 @@
 body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
     margin: 0;
     background-color: #e3cc16;
     font-family: Lato;
@@ -36,13 +40,13 @@ body{
 .btn1{
     background-color: #e3cc16;
     color: #000000;
-    width: 14rem;
+    width: 14vw;
     margin: 1rem 0;
 }
 .btn2{
     background-color: #000000;
     color: #e3cc16;
-    width: 18rem;
+    width: 18vw;
 }
 .archive-btn{
     width: 9rem;
@@ -154,6 +158,7 @@ body{
     justify-content: space-between;
     align-items: center;
     margin-left: 2rem;
+    flex-grow: 3;
 }   
 .hero-text{
     width: 50vw;
@@ -198,7 +203,7 @@ body{
     background-color: #eaeaea;
     color: #000000;
     height: 3rem;
-    width: 19rem;
+    width: 19vw;
 }
 .forgot-password-link{
     font-size: 0.9rem;
@@ -208,6 +213,7 @@ body{
 footer{
     background-color: #212121;
     height: 10vh;
+    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -592,7 +598,7 @@ fieldset{
 
 /* Legal Pages */
 main{
-    margin: auto;
+    margin: 2rem auto;
     height: 70%;
     width: 60%;
     padding: 2rem;
@@ -601,4 +607,43 @@ main{
 }
 header{
     text-align: center;
+}
+
+/* Styling for screen 800px and below in width */
+
+@media (max-width: 800px){
+    /* Buttons */
+    .btn1{
+        width: 30vw;
+    }
+    .btn2{
+        width: 35vw;
+    }
+
+    /* Divider */
+    .black-divider{
+        width: 40vw;
+        margin: 0.5rem auto;
+    }
+
+    /* Homepage */
+    .hero{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        text-align: center;
+        margin: auto
+    }
+    .hero-text{
+        width: 80vw;
+    }
+    .login-signup-container{
+        width: 60vw;
+        margin: 2rem auto;
+
+    }
+    .landing-input{
+        width: 40vw;
+    }
 }
