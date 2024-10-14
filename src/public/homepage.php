@@ -95,7 +95,8 @@
         </div>
     </div>
     <footer>
-
+        <a href="privacy_policy.html">Privacy Policy</a>
+        <a href="terms_and_conditions.html">Terms and Conditions</a>
     </footer>
 </body>
 </html>

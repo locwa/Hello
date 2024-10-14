@@ -81,7 +81,7 @@
                     <option value="2">Other</option>
             </select>
             <p class="black-text xs label">By clicking Sign Up, you agree to our Terms, Privacy Policy and Cookies Policy.</p>
-            <button type="submit" name="signup" class="signup-btn register">Sign up</button>
+            <button type="submit" name="signup" class="btn1 register">Sign up</button>
         </form>
     </div>    
 </body>
