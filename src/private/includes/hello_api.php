@@ -30,7 +30,7 @@
                 htmlspecialchars($fname),
                 htmlspecialchars($lname),
                 htmlspecialchars($email),
-                htmlspecialchars($password),
+                password_hash($password, PASSWORD_DEFAULT),
                 $birthdate,
                 $gender
             ];
@@ -250,7 +250,7 @@
                         ";
             $dbconnect = new DBConnection();
             $stmt = $dbconnect->prepare($query);
-            $isExecuted = $stmt->execute([$sender_id, $receiver_id, $text_content, $conversation_id]);
+            $isExecuted = $stmt->execute([$sender_id, $receiver_id, htmlspecialchars($text_content), $conversation_id]);
             if ($isExecuted){
                 $stmt2 = $dbconnect->prepare("UPDATE conversations SET last_interacted = UTC_TIMESTAMP() WHERE conversation_id = $conversation_id");
                 $stmt2->execute();
