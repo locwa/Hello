@@ -172,7 +172,7 @@ body{
 }
 .login-signup-container{
     width: 30vw;
-    height: 22rem;
+    height: 75vh;
     margin-right: 5vw;
     display: flex;
     flex-direction: column;
@@ -475,7 +475,6 @@ footer > a{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
 }
 .registration-container{
     width: 35vw;
@@ -495,6 +494,9 @@ footer > a{
 .registration-form{
     display: flex;
     flex-direction: column;
+}
+.registration-form > h1{
+    margin: 0.5rem 0;
 }
 .name-input-container, .birthdate{
     display: flex;
@@ -621,6 +623,31 @@ header{
     text-align: center;
 }
 
+/* Error Banner */
+.error-banner{
+    max-width: 100%;
+    border: 2px solid #ff1010;
+    border-radius: 10px;
+    padding: 0.5rem;
+    margin: 1rem;
+    background-color: #ff9a9a;
+    text-align: center;
+}
+.login-banner{
+    margin: 0.5rem;
+    width: 19vw;;
+}
+.login-banner > p{
+    margin: 0;
+    color: #980000;
+    font-size: 0.7rem;
+}
+.signup-banner > p{
+    margin: 0;
+    color: #980000;
+    font-size: 1rem;
+}
+
 /* Styling for screen 800px and below in width */
 
 @media screen and (max-width: 800px){
@@ -652,10 +679,14 @@ header{
     }
     .login-signup-container{
         width: 60vw;
+        height: 45vh;
         margin: 2rem auto;
 
     }
     .landing-input{
+        width: 40vw;
+    }
+    .login-banner{
         width: 40vw;
     }
 
@@ -675,6 +706,21 @@ header{
     }
     #messageHeader{
         padding: 0.5rem 1rem;
+    }
+
+    /* Registration */
+    .signup-black-divider{
+        width: 100%;
+    }
+    .registration-container{
+        width: 75vw;
+    }
+    .name{
+        width: 30vw;
+    }
+    .dropdown{
+        width: 25vw;
+        padding-right: 1.5rem;
     }
 }
 

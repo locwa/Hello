@@ -21,29 +21,62 @@
     }
     class Accounts{
         function register($fname, $lname, $email, $password, $birthdate, $gender){
-            $query =   "INSERT INTO 
+            $inputs = [$fname, $lname, $email, $password, $birthdate, $gender];
+            $error = false;
+            for ($i=0; $i < count($inputs); $i++){
+                if(empty($inputs[$i])){
+                    $error = true;
+                    break;
+                }
+            }
+            if (!$error){
+                $email_check = "
+                        SELECT 
+                            email
+                        FROM
+                            accounts
+                        WHERE
+                            email = ?
+                        ";
+                $dbconnect = new DBConnection();
+                $email_stmt = $dbconnect->prepare($email_check);
+                $email_stmt->execute([$email]);
+
+                if ($email_stmt->rowCount() == 0){
+                    $query =   "INSERT INTO 
                             accounts (first_name, last_name, email, pwd, birthdate, gender, join_date) 
                         VALUES
                             (?, ?, ?, ?, ?, ?, UTC_TIMESTAMP())
                         ";
-            $insert_values = [
-                htmlspecialchars($fname),
-                htmlspecialchars($lname),
-                htmlspecialchars($email),
-                password_hash($password, PASSWORD_DEFAULT),
-                $birthdate,
-                $gender
-            ];
-            
-            $dbconnect = new DBConnection();
-            $stmt = $dbconnect->prepare($query);
-            $execute_status = $stmt->execute($insert_values);
-            
-            if ($execute_status){
-                header("Location: ../public/homepage.php");
+                    $insert_values = [
+                        htmlspecialchars($fname),
+                        htmlspecialchars($lname),
+                        htmlspecialchars($email),
+                        password_hash($password, PASSWORD_DEFAULT),
+                        $birthdate,
+                        $gender
+                    ];
+
+                    $dbconnect = new DBConnection();
+                    $stmt = $dbconnect->prepare($query);
+                    $execute_status = $stmt->execute($insert_values);
+
+                    if ($execute_status){
+                        header("Location: ../public/homepage.php");
+                    }
+                    else{
+                        header("Location: ../public/signup.php?error=3");
+                        exit();
+                    }
+                }
+                else{
+                    header("Location: ../public/signup.php?error=2");
+                    exit();
+                }
             }
             else{
-                echo "failed";
+                header("Location: ../public/signup.php?error=1");
+                exit();
             }
         }
         function login ($email, $password){
@@ -52,27 +85,41 @@
                         FROM 
                             accounts 
                         WHERE 
-                            email = ? AND pwd = ?
+                            email = ?
                         ";
 
             $dbconnect = new DBConnection();
             $stmt = $dbconnect->prepare($query);
-            $stmt->execute([$email, $password]);
+            $stmt->execute([$email]);
             $user_cred = $stmt->fetch();
-            if ($user_cred){
-                $_SESSION["check"] = true;
-                $_SESSION["id"] = $user_cred["id"];
-                $_SESSION["first_name"] = $user_cred["first_name"];
-                $_SESSION["last_name"] = $user_cred["last_name"];
-                $_SESSION["email"] = $user_cred["email"];
-                $dbconnect = new DBConnection();
-                $res =$dbconnect->prepare("UPDATE accounts SET is_online = 1 WHERE id = " . $user_cred["id"]);
-                $res->execute();
-                header("Location: ../public/inbox.php");
-                exit();
+            $error = false;
+            $inputs = [$email, $password];
+            for ($i=0; $i < count($inputs); $i++){
+                if(empty($inputs[$i])){
+                    $error = true;
+                    break;
+                }
             }
-            else {
-                header("Location: ../public/homepage.php");
+            if (!$error){
+                if (password_verify($password, $user_cred["pwd"])){
+                    $_SESSION["check"] = true;
+                    $_SESSION["id"] = $user_cred["id"];
+                    $_SESSION["first_name"] = $user_cred["first_name"];
+                    $_SESSION["last_name"] = $user_cred["last_name"];
+                    $_SESSION["email"] = $user_cred["email"];
+                    $dbconnect = new DBConnection();
+                    $res =$dbconnect->prepare("UPDATE accounts SET is_online = 1 WHERE id = " . $user_cred["id"]);
+                    $res->execute();
+                    header("Location: ../public/inbox.php");
+                    exit();
+                }
+                else {
+                    header("Location: ../public/homepage.php?error=2");
+                    exit();
+                }
+            }
+            else{
+                header("Location: ../public/homepage.php?error=1");
                 exit();
             }
         }

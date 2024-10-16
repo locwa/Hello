@@ -23,9 +23,17 @@
         header("location: inbox.php");
         exit;
     }
+    include_once("../private/includes/errors.php");
 ?>
 </head>
 <body class="registration">
+    <?php
+        if (isset($_GET['error'])) {
+            include_once("../private/includes/errors.php");
+            $error = $_GET['error'];
+            signupError($error);
+        }
+    ?>
     <div class="registration-container">
         <form action="signup.php" method="post" class="registration-form">
             <h1 class="black-text">Sign up</h1>

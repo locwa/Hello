@@ -87,6 +87,13 @@
             <form action="homepage.php" method="post" class="login-form">
                 <input type="email" name="email" class="landing-input" placeholder="E-mail Address">
                 <input type="password" name="password" class="landing-input" placeholder="Password">
+                <?php
+                if (isset($_GET['error'])) {
+                    include_once("../private/includes/errors.php");
+                    $error = $_GET['error'];
+                    loginError($error);
+                }
+                ?>
                 <button type="submit" name="login" class="btn1">Log in</button>
                 <a href="" class="forgot-password-link">Forgot Password?</a>
                 <hr class="black-divider">
