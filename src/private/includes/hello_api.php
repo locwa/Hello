@@ -19,8 +19,23 @@
             }
         }
     }
+
+    /**
+     * Is responsible for any function relating to account information
+     *
+     */
     class Accounts{
-        function register($fname, $lname, $email, $password, $birthdate, $gender){
+        /**
+         * Registers an account to the application.
+         *
+         * @param string $fname  The first name of the registrant
+         * @param string $lname The last name of the registrant
+         * @param string $email The email address of the registrant
+         * @param string $password The password of the registrant
+         * @param string $birthdate The first name of the registrant
+         * @param string $gender The first name of the registrant
+         */
+        function register(string $fname, string $lname, string $email, string $password, string $birthdate, string$gender){
             $inputs = [$fname, $lname, $email, $password, $birthdate, $gender];
             $error = false;
             for ($i=0; $i < count($inputs); $i++){
@@ -79,6 +94,13 @@
                 exit();
             }
         }
+
+        /**
+         * Logs a user in based on the arguments they have provided
+         *
+         * @param string $email The email address of the user
+         * @param string $password The password of the user
+         */
         function login ($email, $password){
             $query =    "SELECT 
                             email, pwd, id, first_name, last_name 
@@ -123,6 +145,13 @@
                 exit();
             }
         }
+
+        /**
+         * Logs out a user account from the application
+         *
+         * @param int $id is the ID of the account in the database
+         * @return bool returns the result of the execution of the query
+         */
         function logout(int $id){
             $query =    "
                         UPDATE 
