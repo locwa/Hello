@@ -1,8 +1,10 @@
-// TODO: make page responsive
 // TODO: add security
 
 // Intervals for retrievals
 setInterval(getLatest, 1000);
+
+// window width
+let windowWidth = 0;
 
 // conversation ID
 let conversationID = 0;
@@ -57,8 +59,6 @@ document.getElementById("conversationList").addEventListener("scroll", function 
     let conversationList = document.getElementById('conversationList');
     let convElementHeight = conversationList.offsetHeight - conversationList.scrollHeight;
     let convCurrentPosition = (Math.floor(conversationList.scrollTop) * -1) - 1;
-    console.log(convCurrentPosition);
-    console.log(convElementHeight);
     if (convElementHeight >= convCurrentPosition) {
         conversationLimit += conversationLimit;
     }
@@ -93,10 +93,8 @@ for (let i = 0; i < numFields.length; i++) {
     })
     numFields[i].addEventListener("input", function () {
         if (i < 5) {
-            console.log(numFields[i].value);
             numFields[i + 1].focus();
         } else {
-            console.log(numFields[i].value);
             numFields[i].focus();
         }
     })
@@ -117,6 +115,10 @@ let isToggled = false;
 const emptyMessage = "<div id='emptyMessage'><p>Wow, such empty.</p></div>"
 
 chatButton.addEventListener("click", function () {
+    if (windowWidth <= 800){
+        document.getElementById("msgList").style.display = "flex";
+        document.getElementById("msgContents").style.display = "none";
+    }
     chatButton.classList.add("active");
     archiveButton.classList.remove("active");
     document.getElementById("heading").innerText = "Chats";
@@ -130,6 +132,10 @@ chatButton.addEventListener("click", function () {
 })
 
 archiveButton.addEventListener("click", function () {
+    if (windowWidth <= 800){
+        document.getElementById("msgList").style.display = "flex";
+        document.getElementById("msgContents").style.display = "none";
+    }
     archiveButton.classList.add("active");
     chatButton.classList.remove("active");
     document.getElementById("heading").innerText = "Archive";
@@ -171,16 +177,20 @@ function getConversations(convId, toggle) {
 function getConvID(cid, oid) {
     conversationID = cid;
     otherID = oid;
-    getMessage(conversationID);
-    getMessageRecipient(conversationID);
+    getMessage(conversationID, windowWidth);
+    getMessageRecipient(conversationID, windowWidth);
 }
 
-function getMessage(convId) {
+function getMessage(convId, windowWidth) {
     let url = "../private/messages_retrieval.php";
     let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.onload = function () {
         if (this.statusText = "200") {
+            if (windowWidth <= 800){
+                document.getElementById("msgList").style.display = "none";
+                document.getElementById("msgContents").style.display = "flex";
+            }
             document.getElementById("messageRoll").innerHTML = "";
             document.getElementById("messageRoll").innerHTML = this.responseText;
             removeConversationHighlights();
@@ -194,13 +204,23 @@ function getMessage(convId) {
 }
 
 function getMessageRecipient(convID) {
-    let url = "../private/recipient_retrieval.php?c=" + convID;
+    let url = "../private/recipient_retrieval.php?c=" + convID + "&windowWidth=" + windowWidth;
     let xhr = new XMLHttpRequest();
     xhr.open("GET", url, true);
     xhr.onload = function () {
         if (this.statusText = "200") {
+            windowWidth = window.innerWidth;
             document.getElementById("messageHeader").innerHTML = "";
             document.getElementById("messageHeader").innerHTML = this.responseText;
+            // shows or hide message list and contents on mobile screens
+            if (document.getElementById("backButton") != null){
+                document.getElementById("backButton").addEventListener("click", function () {
+                    document.getElementById("msgList").style.display = "flex";
+                    document.getElementById("msgContents").style.display = "none";
+                    conversationID = 0;
+                    removeConversationHighlights();
+                })
+            }
             if (document.getElementById("archiveConversationButton") != null){
                 document.getElementById("archiveConversationButton").addEventListener("click", function () {
                     showArchivePopup();

@@ -4,6 +4,7 @@
 
     $id = $_SESSION["id"];
     $conv_id = $_GET['c'];
+    $window_width = $_GET['windowWidth'];
     $messages = new Messages();
     $row_count = $messages->getRecepientName($conv_id, $id)->rowCount();
     $recipient_name = $messages->getRecepientName($conv_id, $id)->fetchAll();
@@ -17,12 +18,45 @@
             $is_online = "online";
         }
 
-        echo "
-            <div class='recipient-details'>
+        echo "<div class='top-left-container'>";
+
+        if ($window_width <= 800){
+            echo'
+                <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#ffffff"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        id="backButton"
+                        >
+                    <path
+                            stroke="none"
+                            d="M0 0h24v24H0z"
+                            fill="none"
+                    />
+                    <path
+                            d="M5 12l14 0"
+                    />
+                    <path
+                            d="M5 12l6 6"
+                    />
+                    <path
+                            d="M5 12l6 -6"
+                    />
+                </svg>
+            ';
+        }
+        echo "<div class='recipient-details'>
                 <h4 class='sm'>".$recipient_name[0]['first_name']." ".$recipient_name[0]['last_name']."</h4>
                 <p class='xs'>".$is_online."</p>
             </div>  
             ";
+        echo "</div>";
         if ($recipient_name[0]['status'] == 0){
             echo "
             <div class='options' id='archiveConversationButton'>

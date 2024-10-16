@@ -229,6 +229,7 @@ footer > a{
 .inbox{
     display: flex;
     align-items: center;
+    justify-content: center;
     height: 100vh;
 }
 .message{
@@ -246,7 +247,7 @@ footer > a{
     padding: 1.5rem 0 0 0;
 }
 .msg-list{
-    width: 30vw;
+    flex-grow: 3;
 }
 .msg-list-content{
     margin: 0 1.2rem;
@@ -254,9 +255,9 @@ footer > a{
 }
 .msg-contents{
     margin: 1rem;
-    width: 65vw;
     display: flex;
     flex-direction: column;
+    flex-grow: 30;
     height: 96.5vh;
 }
 .inbox-header{
@@ -278,17 +279,21 @@ footer > a{
     cursor: pointer;
     background-color: #3f3f3f;
 }
+.inbox-search-container{
+    width: 100%;
+    text-align: center;
+    margin: 0.8rem auto 0;
+}
 .inbox-search{
-    width: 18.5rem;
+    width: 90%;
     padding: 0.6rem 0.9rem;
     background-color: #3a3a3a;
     color: #eaeaea;
     border: none;
     border-radius: 20px;
-    margin-top: 0.8rem;
 }
 .navbar{
-    width: 5vw;
+    flex-grow: 1;
     margin-right: 0.1rem;
     border-radius: 20px;
     display: flex;
@@ -358,6 +363,13 @@ footer > a{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.top-left-container{
+    display: flex;
+    align-items: center;
+}
+#backButton{
+    margin-right: 0.5rem;
 }
 .recipient-details{
     display: flex;
@@ -611,7 +623,7 @@ header{
 
 /* Styling for screen 800px and below in width */
 
-@media (max-width: 800px){
+@media screen and (max-width: 800px){
     /* Buttons */
     .btn1{
         width: 30vw;
@@ -645,5 +657,30 @@ header{
     }
     .landing-input{
         width: 40vw;
+    }
+
+    /* Inbox */
+    .navbar{
+        max-width: 10vw;
+    }
+    .msg-list{
+        max-width: 75vw;
+    }
+    .inbox-search{
+        width: 55vw;
+    }
+    .msg-contents{
+        max-width: 75vw;
+        display: none;
+    }
+    #messageHeader{
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media screen and (max-width: 600px){
+    /* Inbox */
+    .navbar{
+        max-width: 14vw;
     }
 }

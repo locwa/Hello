@@ -126,7 +126,7 @@
                 </button>
             </form>
         </nav>
-        <div class="message msg-list">
+        <div class="message msg-list" id="msgList">
             <div class="msg-list-content">
                 <div class="inbox-header">
                     <h1 id="heading">Chats</h1>
@@ -159,7 +159,9 @@
                         </svg>
                     </div>
                 </div>
-                <input type="text" name="inbox-search" placeholder="Search" class="inbox-search" id="inboxSearch">
+                <div class="inbox-search-container">
+                    <input type="text" name="inbox-search" placeholder="Search" class="inbox-search" id="inboxSearch">
+                </div>
                 <div id="conversationList">
                     <div id="loaderContainer">
                         <div class="loader"></div>
@@ -167,7 +169,7 @@
                 </div>
             </div>
         </div>
-        <div class="message msg-contents">
+        <div class="message msg-contents" id="msgContents">
             <div id="messageHeader">
             </div>
             <div id="messageRoll">
