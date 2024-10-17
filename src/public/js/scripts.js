@@ -1,5 +1,3 @@
-// TODO: add security
-
 // Intervals for retrievals
 setInterval(getLatest, 1000);
 
