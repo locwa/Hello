@@ -679,9 +679,8 @@ header{
     }
     .login-signup-container{
         width: 60vw;
-        height: 45vh;
+        height: 60vh;
         margin: 2rem auto;
-
     }
     .landing-input{
         width: 40vw;
@@ -725,6 +724,12 @@ header{
 }
 
 @media screen and (max-width: 600px){
+    /* Homepage */
+    .login-signup-container{
+        width: 60vw;
+        height: 45vh;
+        margin: 2rem auto;
+    }
     /* Inbox */
     .navbar{
         max-width: 14vw;
