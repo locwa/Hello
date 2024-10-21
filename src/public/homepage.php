@@ -95,8 +95,6 @@
                 }
                 ?>
                 <button type="submit" name="login" class="btn1">Log in</button>
-                <a href="" class="forgot-password-link">Forgot Password?</a>
-                <hr class="black-divider">
                 <button type="submit" name="signup" class="btn2">Sign up</button>
             </form>
         </div>
