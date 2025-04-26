@@ -18,7 +18,7 @@
       `email` varchar(50) NOT NULL,
       `pwd` varchar(255) NOT NULL,
       `birthdate` date NOT NULL,
-      `gender` tinyint(4) NOT NULL COMMENT '0 for male, 1 for female, 2 for other',
+      `gender` tinyint(4) NOT NULL COMMENT '1 for male, 2 for female, 3 for other',
       `gender_details` text DEFAULT NULL COMMENT 'In case the user selects the "other" option in registration',
       `pronouns` text COMMENT 'In case the user selects the "other" option in registration',
       `join_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'in UTC timezone',
